@@ -8,8 +8,9 @@
 
 
 extern int debugMode;
-
+extern char tile;
 int distancia = 12;
+extern int nivelglobal;
 
 
 void debug(int p1X, int p1Y) {
@@ -32,6 +33,10 @@ void debug(int p1X, int p1Y) {
 		std::cout << ROJO << "P1 X: " << p1X+20;
 		gotoxy(0, 16+distancia);
 		std::cout << ROJO << "P1 Y: " << p1Y;
+		gotoxy(0, 17 + distancia);
+		std::cout << NARANJA << "Nivel: " << nivelglobal;
+		
+
 	
 	}
 	else {

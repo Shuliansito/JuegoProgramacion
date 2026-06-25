@@ -13,16 +13,75 @@ using namespace std;
 
 bool playing = true;
 int debugMode = 1;
+int nivelglobal = 1;
+int prevX1;
+int prevY1;
+
+char tile=' ';
 
 
 
-bool esPared(int x, int y, string mapa[])
+int collision(int x, int y, string mapa[])
 {
-    return mapa[y][x] != ' ';
+    //Caso 0: No hay colision de ningun tipo
+    if (mapa[y][x] == ' ') { return 0;}
+    //Caso 1: Colision pared
+    else if(mapa[y][x] == '%'){ return 1; }
+    //Caso 2: Colision Salida
+    else if (mapa[y][x] == 'E') { return 2; }
+    //Caso 3: Colision Enemigo
+    else if (mapa[y][x] == 'X') { return 3; }
+
+    return 0;
 }
 
+void levelCollision() {
+    
+    if (nivelglobal == 1) {
+        if (collision(player1.X, player1.Y, level1) == 1)
+        {
+            player1.X = prevX1;
+            player1.Y = prevY1;
+        }
+        else if (collision(player1.X, player1.Y, level1) == 2) {
+            player1.nivel++;
+            nivelglobal++;
+            if (chooseMap() == 2) dibujarMapa(level2, 20);
+            player1.X = 1;
+            player1.Y = 1;
+        }
+    }
+    if (nivelglobal ==2) {
+        if (collision(player1.X, player1.Y, level2) == 1)
+        {
+            player1.X = prevX1;
+            player1.Y = prevY1;
+        }
+        else if (collision(player1.X, player1.Y, level2) == 2) {
+            player1.nivel--;
+            nivelglobal--;
+            if (chooseMap() == 1) dibujarMapa(level1, 20);
+            player1.X = 1;
+            player1.Y = 1;
+        }
+        
+    }
+}
 void inputMovement()
 {
+    char tile;
+
+    switch (player1.nivel)
+    {
+    case 1:
+        tile = level1[player1.Y][player1.X];
+        break;
+
+    case 2:
+        tile = level2[player1.Y][player1.X];
+        break;
+    }
+
     if (_kbhit())
     {
         gotoxy(20 + player1.X, player1.Y);
@@ -34,8 +93,8 @@ void inputMovement()
 
         char tecla = _getch();
 
-        int prevX1 = player1.X;
-        int prevY1 = player1.Y;
+        prevX1 = player1.X;
+        prevY1 = player1.Y;
 
      
 
@@ -47,12 +106,8 @@ void inputMovement()
         else if (tecla == 's') player1.Y++;
 
    
-
-        if (esPared(player1.X, player1.Y, level1))
-        {
-            player1.X = prevX1;
-            player1.Y = prevY1;
-        }
+        levelCollision();
+        
 
    
 
@@ -79,3 +134,5 @@ void playerHelp()
 
    
 }
+
+
