@@ -6,6 +6,9 @@
 #include <conio.h>
 #include "Shuli.h"
 
+
+extern int nivelglobal;
+
 class player
 {
 public:
@@ -25,6 +28,7 @@ public:
         color = c;
         vida = 100;
     }
+    void getDamaged(int dm);
 };
 
 void dibujarJugador(int x, int y, std::string simbolo, const string color)
@@ -43,6 +47,6 @@ public:
 
 };
 
-player player1(1,1,"O", nivelglobal, NEGRO);
+player player1(1,6,"O", nivelglobal, NEGRO);
 
 

@@ -11,6 +11,7 @@
 
 using namespace std;
 
+extern player player1;
 bool playing = true;
 int debugMode = 1;
 int nivelglobal = 1;
@@ -29,7 +30,7 @@ string* niveles[3] = { level1, level2, level3 };
 int collision(int x, int y, string mapa[])
 {
     if (mapa[y][x] == ' ') { return 0; }
-    else if (mapa[y][x] == '%') { return 1; }
+    else if (mapa[y][x] == '%' || mapa[y][x] == 'D') { return 1; }
     else if (mapa[y][x] == 'E') { return 2; }
     else if (mapa[y][x] == 'P') { return 3; }
 
