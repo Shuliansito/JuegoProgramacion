@@ -6,22 +6,35 @@
 #include <conio.h>
 #include "Shuli.h"
 
-class player{
+class player
+{
 public:
-	int X;
-	int Y;
-	int Vida;
-	int nivel;
-	std::string color;
+    int X;
+    int Y;
+    string simbolo;
+    int nivel;
+    string color;
+    int vida;
 
-	std::string simbolo;
-
-	std::string nombre;
-
+    player(int x, int y, string s, int n, string c)
+    {
+        X = x;
+        Y = y;
+        simbolo = s;
+        nivel = n;
+        color = c;
+        vida = 100;
+    }
 };
 
+void dibujarJugador(int x, int y, std::string simbolo, const string color)
+{
+	gotoxy(25 + x, 3+y);
+	cout << color << BG << BOLD << simbolo;
+}
 
-class enemy {
+
+class enemy {//Para despues jeje
 public:
 	int X;
 	int Y;
@@ -30,6 +43,6 @@ public:
 
 };
 
-player player1;
+player player1(1,1,"O", nivelglobal, NEGRO);
 
 

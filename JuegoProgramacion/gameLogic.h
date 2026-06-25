@@ -16,61 +16,57 @@ int debugMode = 1;
 int nivelglobal = 1;
 int prevX1;
 int prevY1;
+int nivelActual;
 
-char tile=' ';
+char tile;
 
+extern string level1[20];
+extern string level2[20];
+extern string level3[20];
 
+string* niveles[3] = { level1, level2, level3 };
 
 int collision(int x, int y, string mapa[])
 {
-    //Caso 0: No hay colision de ningun tipo
-    if (mapa[y][x] == ' ') { return 0;}
-    //Caso 1: Colision pared
-    else if(mapa[y][x] == '%'){ return 1; }
-    //Caso 2: Colision Salida
+    if (mapa[y][x] == ' ') { return 0; }
+    else if (mapa[y][x] == '%') { return 1; }
     else if (mapa[y][x] == 'E') { return 2; }
-    //Caso 3: Colision Enemigo
-    else if (mapa[y][x] == 'X') { return 3; }
+    else if (mapa[y][x] == 'P') { return 3; }
+
 
     return 0;
 }
 
-void levelCollision() {
+void actionCollision() {
+    int nivelActual = nivelglobal - 1;
     
-    if (nivelglobal == 1) {
-        if (collision(player1.X, player1.Y, level1) == 1)
-        {
-            player1.X = prevX1;
-            player1.Y = prevY1;
-        }
-        else if (collision(player1.X, player1.Y, level1) == 2) {
-            player1.nivel++;
-            nivelglobal++;
-            if (chooseMap() == 2) dibujarMapa(level2, 20);
-            player1.X = 1;
-            player1.Y = 1;
-        }
+    int col = collision(player1.X, player1.Y, niveles[nivelActual]);
+
+    if (col == 1)
+    {
+        player1.X = prevX1;
+        player1.Y = prevY1;
     }
-    if (nivelglobal ==2) {
-        if (collision(player1.X, player1.Y, level2) == 1)
-        {
-            player1.X = prevX1;
-            player1.Y = prevY1;
-        }
-        else if (collision(player1.X, player1.Y, level2) == 2) {
-            player1.nivel--;
-            nivelglobal--;
-            if (chooseMap() == 1) dibujarMapa(level1, 20);
-            player1.X = 1;
-            player1.Y = 1;
-        }
-        
+    else if (col == 2)
+    {
+        nivelglobal++;
+
+        if (nivelglobal > 3)
+            nivelglobal = 1;
+
+        player1.nivel = nivelglobal;
+
+        dibujarMapa(niveles[nivelglobal - 1], 20);
+
+        player1.X = 1;
+        player1.Y = 1;
     }
+    else if (col == 3) { playing = false; }
 }
+
 void inputMovement()
 {
-    char tile;
-
+    
     switch (player1.nivel)
     {
     case 1:
@@ -80,14 +76,17 @@ void inputMovement()
     case 2:
         tile = level2[player1.Y][player1.X];
         break;
+
+    case 3:
+        tile = level3[player1.Y][player1.X];
+        break;
     }
 
     if (_kbhit())
     {
-        gotoxy(20 + player1.X, player1.Y);
-        cout << " ";
-
         
+        gotoxy(25 + player1.X, 3 + player1.Y);
+        cout <<BG<< " ";
 
         debug(player1.X, player1.Y);
 
@@ -96,8 +95,6 @@ void inputMovement()
         prevX1 = player1.X;
         prevY1 = player1.Y;
 
-     
-
         if (tecla == 'm') debugMode++;
 
         if (tecla == 'd') player1.X++;
@@ -105,34 +102,6 @@ void inputMovement()
         else if (tecla == 'w') player1.Y--;
         else if (tecla == 's') player1.Y++;
 
-   
-        levelCollision();
-        
-
-   
-
-       
+        actionCollision();
     }
 }
-
-void dibujarJugador(int x, int y, std::string simbolo, const string color)
-{
-    gotoxy(20 + x, y);
-    cout << color << BOLD << simbolo;
-}
-
-void playerHelp()
-{
-    gotoxy(24, 20);
-    cout << ROJO << "Player 1:     ";
-    gotoxy(24, 21);
-    cout << ROJO << "   W          ";
-    gotoxy(24, 22);
-    cout << ROJO << " A S D        ";
-    gotoxy(24, 23);
-    cout << ROJO << "To  Move      ";
-
-   
-}
-
-
