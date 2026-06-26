@@ -126,6 +126,7 @@
   <ItemGroup>
     <ClCompile Include="classes.cpp" />
     <ClCompile Include="JuegoProgramacion.cpp" />
+    <ClCompile Include="Shuli.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="classes.h" />

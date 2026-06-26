@@ -9,6 +9,10 @@
 
 extern int nivelglobal;
 
+
+
+
+
 class player
 {
 public:
@@ -31,11 +35,7 @@ public:
     void getDamaged(int dm);
 };
 
-void dibujarJugador(int x, int y, std::string simbolo, const string color)
-{
-	gotoxy(25 + x, 3+y);
-	cout << color << BG << BOLD << simbolo;
-}
+void dibujarJugador(int x, int y, std::string simbolo, const string color);
 
 
 class enemy {//Para despues jeje
@@ -47,6 +47,6 @@ public:
 
 };
 
-player player1(1,6,"O", nivelglobal, NEGRO);
 
+extern player player1;
 

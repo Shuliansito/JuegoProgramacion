@@ -44,30 +44,10 @@ const string BG   = "\x1B[48;2;176;174;174m";
 const string BG_NO = "\x1B[40m";
 const string BG_ROSA   = "\x1B[48;2;255;151;203m";
 
-void showCursor(bool show)
-{
-    HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
-    CONSOLE_CURSOR_INFO cursorInfo;
+void showCursor(bool show);
 
-    GetConsoleCursorInfo(out, &cursorInfo);
-    cursorInfo.bVisible = show;
-    SetConsoleCursorInfo(out, &cursorInfo);
-}
+void gotoxy(int x, int y);
 
-void gotoxy(int x, int y)
-{
-    COORD coord;
-    coord.X = x;
-    coord.Y = y;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-}
+bool keyPressed();
 
-bool keyPressed()
-{
-    return _kbhit();
-}
-
-int distMan(int x1, int y1, int x2, int y2)
-{
-    return abs(x1 - x2) + abs(y1 - y2);
-}
+int distMan(int x1, int y1, int x2, int y2);
