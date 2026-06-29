@@ -1,5 +1,10 @@
 #include "Shuli.h"
 
+
+using namespace std;
+
+
+
 void showCursor(bool show)
 {
     HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);

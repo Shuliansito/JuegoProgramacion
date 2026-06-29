@@ -125,15 +125,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="classes.cpp" />
+    <ClCompile Include="debug.cpp" />
     <ClCompile Include="JuegoProgramacion.cpp" />
+    <ClCompile Include="mapLogic.cpp" />
+    <ClCompile Include="menu.cpp" />
     <ClCompile Include="Shuli.cpp" />
+    <ClCompile Include="ticks.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="classes.h" />
-    <ClInclude Include="debugMode.h" />
+    <ClInclude Include="debug.h" />
     <ClInclude Include="gameLogic.h" />
+    <ClInclude Include="menu.h" />
     <ClInclude Include="mapLogic.h" />
     <ClInclude Include="Shuli.h" />
+    <ClInclude Include="ticks.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

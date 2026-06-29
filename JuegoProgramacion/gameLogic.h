@@ -5,7 +5,7 @@
 #include <windows.h>
 #include <conio.h>
 #include "Shuli.h"
-#include "debugMode.h"
+#include "debug.h"
 #include "mapLogic.h"
 #include "classes.h"
 
@@ -13,7 +13,7 @@ using namespace std;
 
 extern player player1;
 bool playing = true;
-int debugMode = 1;
+
 int nivelglobal = 1;
 int prevX1;
 int prevY1;
@@ -21,18 +21,17 @@ int nivelActual;
 
 char tile;
 
-extern string level1[20];
-extern string level2[20];
-extern string level3[20];
+
 
 string* niveles[3] = { level1, level2, level3 };
 
 int collision(int x, int y, string mapa[])
 {
     if (mapa[y][x] == ' ') { return 0; }
-    else if (mapa[y][x] == '%' || mapa[y][x] == 'D') { return 1; }
+    else if (mapa[y][x] == '%'|| mapa[y][x] == '|'||mapa[y][x] == '-') { return 1; }
     else if (mapa[y][x] == 'E') { return 2; }
     else if (mapa[y][x] == 'P') { return 3; }
+    else if (mapa[y][x] == 'D') { return 4; }
 
 
     return 0;
@@ -61,6 +60,23 @@ void actionCollision() {
 
         player1.X = 1;
         player1.Y = 1;
+    }else if (col == 4) {
+        nivelglobal--;
+
+        if (nivelglobal > 3)
+            nivelglobal = 1;
+        if (nivelglobal < 0)
+            nivelglobal = 1;
+
+        player1.nivel = nivelglobal;
+
+        dibujarMapa(niveles[nivelglobal - 1], 20);
+
+        if (nivelglobal == 1) {
+            player1.X = 63;
+            player1.Y = 18;
+        }
+        
     }
     else if (col == 3) { playing = false; }
 }
@@ -89,14 +105,14 @@ void inputMovement()
         gotoxy(25 + player1.X, 3 + player1.Y);
         cout <<BG<< " ";
 
-        debug(player1.X, player1.Y);
+        
 
         char tecla = _getch();
 
         prevX1 = player1.X;
         prevY1 = player1.Y;
 
-        if (tecla == 'm') debugMode++;
+        if (tecla == 'm') debugKey++;
 
         if (tecla == 'd') player1.X++;
         else if (tecla == 'a') player1.X--;

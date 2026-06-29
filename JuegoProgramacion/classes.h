@@ -18,12 +18,12 @@ class player
 public:
     int X;
     int Y;
-    string simbolo;
+    std::string simbolo;
     int nivel;
-    string color;
+    std::string color;
     int vida;
 
-    player(int x, int y, string s, int n, string c)
+    player(int x, int y, std::string s, int n, std::string c)
     {
         X = x;
         Y = y;
@@ -35,7 +35,7 @@ public:
     void getDamaged(int dm);
 };
 
-void dibujarJugador(int x, int y, std::string simbolo, const string color);
+void dibujarJugador(int x, int y, std::string simbolo, const std::string color);
 
 
 class enemy {//Para despues jeje

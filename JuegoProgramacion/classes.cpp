@@ -1,14 +1,13 @@
-
 #include "classes.h"
 
 
-void dibujarJugador(int x, int y, std::string simbolo, const string color)
+void dibujarJugador(int x, int y, std::string simbolo, const std::string color)
 {
     gotoxy(25 + x, 3 + y);
-    cout << color << BG << BOLD << simbolo;
+    std::cout << color << BG << BOLD << simbolo<<BG_NO<<RESET;
 }
 
-player player1(1, 6, "O", nivelglobal, NEGRO);
+player player1(1, 6, "O", nivelglobal, NARANJA);
 
 void player::getDamaged(int dm)
 {
