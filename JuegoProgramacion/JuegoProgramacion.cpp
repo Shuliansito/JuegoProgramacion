@@ -6,15 +6,13 @@
 #include "Shuli.h"
 #include "gameLogic.h"
 #include "menu.h"
-
 #include "classes.h"
 #include "ticks.h"
 
 
 int tick = 0;
 
-
-
+int cops = 0;
 
 int main()
 {
@@ -37,26 +35,24 @@ int main()
     
     iniciarTicks(20);
     std::cout << RESET;
+   
     while (playing)
     {
         std::cout << BG_NO;
         inputMovement();
         dibujarJugador(player1.X, player1.Y, player1.simbolo, player1.color);
-        updateDebug();
+
         if (debeEjecutarTick())
         {
             playerHelps();
+           
+            
+            
             tick++;
         }
-
-
+        updateDebug();
         
-
-        
-        
-
         esperarTick();
-        
     }
 
 

@@ -1,5 +1,5 @@
 #pragma once
 
-bool inMenu = true;
+extern bool inMenu;
 
 void menuLogic();

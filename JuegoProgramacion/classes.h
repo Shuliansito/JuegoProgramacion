@@ -9,10 +9,6 @@
 
 extern int nivelglobal;
 
-
-
-
-
 class player
 {
 public:

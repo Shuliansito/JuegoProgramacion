@@ -3,7 +3,8 @@
 #include "mapLogic.h"
 #include "Shuli.h"
 
-extern bool inMenu;
+bool inMenu = true;
+
 using namespace std;
 void menuLogic() {
 

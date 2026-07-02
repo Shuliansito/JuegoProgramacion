@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by JuegoProgramacion.rc
+// Used by JuegoProgramacion1.rc
 
 // Valores predeterminados siguientes para nuevos objetos
 // 
