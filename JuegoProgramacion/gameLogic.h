@@ -58,7 +58,10 @@ void actionCollision() {
 
         dibujarMapa(niveles[nivelglobal - 1], 20);
 
-        if (nivelglobal == 1||nivelglobal==2) {
+        if (nivelglobal == 1) {
+            player1.X = 1;
+            player1.Y = 6;
+        }else if (nivelglobal == 2){
             player1.X = 1;
             player1.Y = 1;
         }
@@ -81,7 +84,14 @@ void actionCollision() {
         if (nivelglobal == 1) {
             player1.X = 63;
             player1.Y = 18;
+        }else if (nivelglobal == 2) {
+            player1.X = 63;
+            player1.Y = 12;
+        }else if (nivelglobal == 3) {
+            player1.X = 45;
+            player1.Y = 12;
         }
+        
         
     }
     else if (col == 3) { playing = false; }

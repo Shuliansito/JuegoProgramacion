@@ -45,8 +45,7 @@ int main()
         updateDebug();
         if (debeEjecutarTick())
         {
-            
-         
+        
             tick++;
         }
 
