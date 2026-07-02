@@ -1,6 +1,7 @@
 ﻿#include "mapLogic.h"
 
 
+
 string level0[20] = {
     "                                                                  ",
     "                                                                  ",
@@ -31,18 +32,18 @@ string level1[20] = {
     "%   %       %    %%%    %          %   %.........................",
     "%   %       %  X %%%    %          % X %.........................",
     "%           |    %%%    |          %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",
-    "%   %       %    %%%    %          %            %%   X          %",
-    "%   %       %    %%%   X%          %          X %%              %",
-    "%%%%%       %%%%%%%%%%%%%          %            %%              %",
-    "%   %       %X   %%%    %          %%%%%%--%%%%%%%%%%%%%--%%%%%%%",
+    "%   %       %    %%%    %          %                            %",
+    "%   %       %    %%%   X%          %                &           %",
+    "%%%%%       %%%%%%%%%%%%%          %                            %",
+    "%   %       %X   %%%    %          %%%%%%%%%%%%     %%%%%%%%%%%%%",
     "%   %       %    %%%    %                                       %",
     "%   |       |    %%%    |                                       %",
     "%X  %       %    %%%X   %                                       %",
     "%   %       %    %%%    %                                       %",
     "%%%%%       %%%%%%%%%%%%%                                       %",
     "....%                                                           %",
-    "....%                                                           E",
-    "....%                                                           E",
+    "....%                                                           K",
+    "....%                                                           K",
     "....%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
 };
 string level2[20] = {
@@ -89,6 +90,10 @@ string level3[20] = {
     "...............................................",
     "..............................................."
 };
+string misiones[2] = {
+    "Agarrá el ",
+    "Mata a los ",
+};
 
 
 int chooseMap() {
@@ -98,6 +103,7 @@ int chooseMap() {
 }
 void dibujarMapa(string mapa[], int filas)
 {
+    
     cout << "\033[0m";
     cout << BG_NO;
     
@@ -136,6 +142,8 @@ void dibujarMapa(string mapa[], int filas)
             {
 
             case 'E': std::cout << BG << VERDE << "▒" << RESET; break;
+            case '&': std::cout << BG << MAGENTA << "<" << RESET; break;
+            case 'K': std::cout << BG_ROJO << "▒" << RESET; break;
             case '%': std::cout << BG << PARED << "▓" << RESET; break;
             case '$': std::cout << BG << "▓" << RESET; break;
             case 'D': std::cout << BG << VERDE << "▒" << RESET; break;
@@ -151,4 +159,24 @@ void dibujarMapa(string mapa[], int filas)
     gotoxy(0, 0);
     cout << "\033[0m";
     cout << BG_NO;
+}
+
+void playerHelps() {
+
+    if(nivelglobal == 1) {
+        gotoxy(40, 23);
+        cout << GRIS << misiones[0] << MAGENTA << "RIFLE" << GRIS << " para abrir la puerta" << RESET;
+    }
+    else if(nivelglobal == 2) {
+        gotoxy(39, 23);
+        cout << GRIS << misiones[1] << AZUL << "GUARDIAS" << RESET;
+    }
+    else if(nivelglobal == 0) {
+        gotoxy(0, 20);
+        cout << "                                                                     " << RESET;
+	}
+    else {
+        gotoxy(0, 20);
+        cout << GRIS << "                                                            " << RESET;
+    }
 }

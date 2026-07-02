@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <iostream>
 #include <string>
@@ -18,6 +18,9 @@ int nivelglobal = 1;
 int prevX1;
 int prevY1;
 int nivelActual;
+bool canPass_1 = false;
+bool canPass_2 = false;
+bool canPass_3 = false;
 
 char tile;
 
@@ -28,10 +31,12 @@ string* niveles[3] = { level1, level2, level3 };
 int collision(int x, int y, string mapa[])
 {
     if (mapa[y][x] == ' ') { return 0; }
-    else if (mapa[y][x] == '%'|| mapa[y][x] == '|'||mapa[y][x] == '-') { return 1; }
+    else if (mapa[y][x] == '%'|| mapa[y][x] == '|' || mapa[y][x] == 'K') { return 1; }
     else if (mapa[y][x] == 'E') { return 2; }
     else if (mapa[y][x] == 'P') { return 3; }
     else if (mapa[y][x] == 'D') { return 4; }
+    else if (mapa[y][x] == '&') { return 5; }
+   
 
 
     return 0;
@@ -95,6 +100,21 @@ void actionCollision() {
         
     }
     else if (col == 3) { playing = false; }
+    else if (col == 5) { canPass_1 = true; }
+
+    if (canPass_1) {
+        
+        for (int i = 0; i < 2; i++) {
+           
+            level1[17 + i][64] = 'E';
+            
+            
+          
+        }
+        level1[8][52] = ' ';
+        dibujarMapa(niveles[0], 20);
+		canPass_1 = false;
+    }
 }
 
 void inputMovement()

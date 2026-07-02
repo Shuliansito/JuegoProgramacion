@@ -1,4 +1,5 @@
 #include "debug.h"
+
 int debugKey=1;
 void updateDebug() {
 
@@ -13,6 +14,8 @@ void updateDebug() {
 		std::cout << GRIS << "Player Y: " << ROJO << player1.Y << RESET;
 		gotoxy(0, 22);
 		std::cout << GRIS << "Nivel: " << NARANJA << player1.nivel << RESET;
+	
+	
 	}
 	else {
 		gotoxy(0, 20);

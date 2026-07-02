@@ -26,7 +26,7 @@ int main()
     while (inMenu) {
 
         dibujarMapa(level0, 20);
-
+		
         menuLogic();
         
     }
@@ -45,7 +45,7 @@ int main()
         updateDebug();
         if (debeEjecutarTick())
         {
-        
+            playerHelps();
             tick++;
         }
 
