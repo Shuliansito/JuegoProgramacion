@@ -8,8 +8,7 @@ using namespace std;
 void menuLogic() {
 
 
-	gotoxy(0, 0);
-	std::cout << BG_NO << "En Menu"<<RESET;
+	
 
 	if (_kbhit) {
 
