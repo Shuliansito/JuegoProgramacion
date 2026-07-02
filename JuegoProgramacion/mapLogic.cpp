@@ -90,9 +90,11 @@ string level3[20] = {
     "...............................................",
     "..............................................."
 };
-string misiones[2] = {
+
+string misiones[3] = {
     "Agarrá el ",
     "Mata a los ",
+	"Escapa de la prisión",
 };
 
 

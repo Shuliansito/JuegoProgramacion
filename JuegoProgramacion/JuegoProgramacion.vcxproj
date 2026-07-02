@@ -138,8 +138,15 @@
     <ClInclude Include="gameLogic.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="mapLogic.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Shuli.h" />
     <ClInclude Include="ticks.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="JuegoProgramacion.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="C:\Users\Navegador\Downloads\icon.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
