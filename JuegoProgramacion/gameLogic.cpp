@@ -160,9 +160,7 @@ void inputMovement()
         prevX1 = player1.X;
         prevY1 = player1.Y;
 
-        if (tecla == ' ') {
-            crearBala(player1.X, player1.Y, direccionDisparo);
-        }
+        
 
         
         if (tecla == 'd') player1.X++;
