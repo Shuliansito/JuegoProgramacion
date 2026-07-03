@@ -129,6 +129,7 @@
     <ClCompile Include="gameLogic.cpp" />
     <ClCompile Include="JuegoProgramacion.cpp" />
     <ClCompile Include="mapLogic.cpp" />
+    <ClCompile Include="mecanicas.cpp" />
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="Shuli.cpp" />
     <ClCompile Include="ticks.cpp" />
@@ -137,6 +138,7 @@
     <ClInclude Include="classes.h" />
     <ClInclude Include="debug.h" />
     <ClInclude Include="gameLogic.h" />
+    <ClInclude Include="mecanicas.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="mapLogic.h" />
     <ClInclude Include="resource.h" />

@@ -44,14 +44,13 @@ int main()
 
         if (debeEjecutarTick())
         {
+            
             playerHelps();
-           
-            
-            
             tick++;
         }
+
+       
         updateDebug();
-        
         esperarTick();
     }
 

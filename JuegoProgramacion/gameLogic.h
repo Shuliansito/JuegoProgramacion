@@ -8,7 +8,7 @@
 #include "debug.h"
 #include "mapLogic.h"
 #include "classes.h"
-
+#include "mecanicas.h"
 using namespace std;
 
 extern player player1;

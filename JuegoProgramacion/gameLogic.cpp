@@ -1,5 +1,6 @@
 #include "gameLogic.h"
 
+
 using namespace std;
 
 bool playing = true;
@@ -159,15 +160,17 @@ void inputMovement()
         prevX1 = player1.X;
         prevY1 = player1.Y;
 
-        if (tecla == 'm') debugKey++;
+        if (tecla == ' ') {
+            crearBala(player1.X, player1.Y, direccionDisparo);
+        }
 
+        
         if (tecla == 'd') player1.X++;
         else if (tecla == 'a') player1.X--;
         else if (tecla == 'w') player1.Y--;
         else if (tecla == 's') player1.Y++;
-
-        actionCollision();
         
+        actionCollision();
     }
 }
 
