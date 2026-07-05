@@ -9,16 +9,14 @@ using namespace std;
 void menuLogic() {
 
 
-	
-
-	if (_kbhit) {
+	if (_kbhit()) {
 
 		char key = _getch();
 		if (key == '\r') {
 			inMenu = false;
 		}
 		else {
-
+		
 		}
 	}
 }

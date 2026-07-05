@@ -11,7 +11,7 @@ string level0[20] = {
     "             %            PRISON ESCAPE            %              ",
     "             %                                     %              ",
     "             %                                     %              ",
-    "             %           Presiona  Enter           %              ",
+    "             %           Presiona                  %              ",
     "             %             para jugar              %              ",
     "             %                                     %              ",
     "             %                                     %              ",
@@ -53,10 +53,10 @@ string level2[20] = {
     "%%%%%%%%%%%%%                      %%............................",
     "%           %                      %%............................",
     "%           %                      %%............................",
-    "%           %                      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",
+    "%    P      %                      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",
     "%                                                               %",
     "%                                                               %",
-    "%%%%%%      %                                                   %",
+    "%%%%%% P    %                                                   %",
     ".....%      %                                                   %",
     ".....%      %                                                   K",
     ".....%      %                                                   K",
@@ -122,6 +122,7 @@ void dibujarMapa(string mapa[], int filas)
                 {
 
                 case '%': std::cout << BG_NO << BLANCO << "▓"<<RESET; break;
+                
 
                 default:  std::cout << BG_NO  << mapa[y][x] << RESET;
                 }
@@ -129,8 +130,7 @@ void dibujarMapa(string mapa[], int filas)
 
             }
         }
-        gotoxy(60, 11);
-        cout << NARANJA<<"ENTER"<<RESET;
+        
         return;
     }
     system("cls");

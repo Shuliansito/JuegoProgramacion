@@ -9,7 +9,7 @@ void dibujarJugador(int x, int y, std::string simbolo, const std::string color)
 
 player player1(1, 6, "O", nivelglobal, NARANJA);
 
-void player::getDamaged(int dm)
+void player::recibirDano(int dm)
 {
     this->vida -= dm;
     if (this->vida < 0)

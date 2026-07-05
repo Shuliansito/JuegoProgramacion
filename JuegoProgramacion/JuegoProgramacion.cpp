@@ -6,6 +6,7 @@
 #include "Shuli.h"
 #include "gameLogic.h"
 #include "menu.h"
+#include "disparos.h"
 #include "classes.h"
 #include "ticks.h"
 
@@ -20,14 +21,15 @@ int main()
     system("title Prison Escape");
     showCursor(false);
     
-
+    dibujarMapa(level0, 20);
     while (inMenu) {
-
-        dibujarMapa(level0, 20);
-		
+        gotoxy(60, 11);
+        cout << NARANJA << "ENTER" << RESET;
+        
+        
         menuLogic();
         
-    }
+    } 
     
    
 
@@ -40,11 +42,12 @@ int main()
     {
         std::cout << BG_NO;
         inputMovement();
+       
         dibujarJugador(player1.X, player1.Y, player1.simbolo, player1.color);
 
         if (debeEjecutarTick())
         {
-            
+            actualizarBalas(niveles[nivelglobal - 1]);
             playerHelps();
             tick++;
         }

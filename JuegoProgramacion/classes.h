@@ -28,7 +28,7 @@ public:
         color = c;
         vida = 100;
     }
-    void getDamaged(int dm);
+    void recibirDano(int dm);
 };
 
 void dibujarJugador(int x, int y, std::string simbolo, const std::string color);

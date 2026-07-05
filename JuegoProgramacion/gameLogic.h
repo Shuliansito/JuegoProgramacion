@@ -8,12 +8,15 @@
 #include "debug.h"
 #include "mapLogic.h"
 #include "classes.h"
+#include "disparos.h"
 
 using namespace std;
 
 extern player player1;
 extern bool playing;
 
+
+extern int guardiasNivel2;
 extern int nivelglobal;
 extern int prevX1;
 extern int prevY1;

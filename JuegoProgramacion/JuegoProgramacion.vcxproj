@@ -126,6 +126,7 @@
   <ItemGroup>
     <ClCompile Include="classes.cpp" />
     <ClCompile Include="debug.cpp" />
+    <ClCompile Include="disparos.cpp" />
     <ClCompile Include="gameLogic.cpp" />
     <ClCompile Include="JuegoProgramacion.cpp" />
     <ClCompile Include="mapLogic.cpp" />
@@ -136,6 +137,7 @@
   <ItemGroup>
     <ClInclude Include="classes.h" />
     <ClInclude Include="debug.h" />
+    <ClInclude Include="disparos.h" />
     <ClInclude Include="gameLogic.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="mapLogic.h" />

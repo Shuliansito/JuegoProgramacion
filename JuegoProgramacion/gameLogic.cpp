@@ -98,7 +98,7 @@ void actionCollision() {
 
     }
     else if (col == 3) { playing = false; }
-    else if (col == 5) { canPass_1 = true; }
+    else if (col == 5) { canPass_1 = true; canUseWeapon = true; }
 
     if (!puertaNivel2Abierta &&
         nivelglobal == 2 &&
@@ -167,6 +167,10 @@ void inputMovement()
         else if (tecla == 'a') player1.X--;
         else if (tecla == 'w') player1.Y--;
         else if (tecla == 's') player1.Y++;
+        else if (tecla == 'j') dispararBala(player1.X - 1, player1.Y, -1, 0);
+        else if (tecla == 'l') dispararBala(player1.X + 1, player1.Y, 1, 0);
+        else if (tecla == 'i') dispararBala(player1.X, player1.Y - 1, 0, -1);
+        else if (tecla == 'k') dispararBala(player1.X, player1.Y + 1, 0, 1);
         
         actionCollision();
     }
