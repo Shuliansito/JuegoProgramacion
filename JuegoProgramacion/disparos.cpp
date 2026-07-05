@@ -4,14 +4,16 @@ Bullet bullets[MAX_BULLETS];
 bool canUseWeapon = false;
 
 void dispararBala(int x, int y, int dx, int dy) {
-    for (int i = 0; i < MAX_BULLETS; i++) {
-        if (!bullets[i].activa) {
-            bullets[i].x = x;
-            bullets[i].y = y;
-            bullets[i].dx = dx;
-            bullets[i].dy = dy;
-            bullets[i].activa = true;
-            return;
+    if (canUseWeapon){
+        for (int i = 0; i < MAX_BULLETS; i++) {
+            if (!bullets[i].activa) {
+                bullets[i].x = x;
+                bullets[i].y = y;
+                bullets[i].dx = dx;
+                bullets[i].dy = dy;
+                bullets[i].activa = true;
+                return;
+            }
         }
     }
 }
@@ -54,7 +56,7 @@ void actualizarBalas(std::string mapa[]) {
             }
             else {
                 gotoxy(25 + nx, 3 + ny);
-                std::cout << AMARILLO << BG << "*" << RESET;
+                std::cout << NEGRO << BG << "*" << RESET;
             }
         }
     }

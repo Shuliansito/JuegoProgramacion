@@ -26,6 +26,8 @@ extern bool canPass_2;
 extern bool canPass_3;
 
 extern char tile;
+extern char tecla;
+extern char u_tecla;
 
 extern string* niveles[3];
 

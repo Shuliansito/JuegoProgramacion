@@ -14,8 +14,10 @@ bool canPass_2 = false;
 bool canPass_3 = false;
 
 char tile;
+char tecla;
+char u_tecla=tecla;
 //Nivel 2
-int guardiasNivel2 = 0;
+int guardiasNivel2 = 2;
 bool puertaNivel2Abierta = false;
 string* niveles[3] = { level1, level2, level3 };
 
@@ -171,7 +173,7 @@ void inputMovement()
         else if (tecla == 'l') dispararBala(player1.X + 1, player1.Y, 1, 0);
         else if (tecla == 'i') dispararBala(player1.X, player1.Y - 1, 0, -1);
         else if (tecla == 'k') dispararBala(player1.X, player1.Y + 1, 0, 1);
-        
+        else if (tecla == 'm') debugKey++;
         actionCollision();
     }
 }

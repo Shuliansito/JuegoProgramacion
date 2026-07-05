@@ -15,7 +15,7 @@ public:
     bool activa;
 };
 
-const int MAX_BULLETS = 8;
+const int MAX_BULLETS = 16;
 extern Bullet bullets[MAX_BULLETS];
 
 void dispararBala(int x, int y, int dx, int dy);
