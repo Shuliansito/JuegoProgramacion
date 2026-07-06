@@ -1,2 +1,3 @@
 Bug N001: Error al disparar balas a las puertas verdes, las mismas desaparecen de la pantalla pero no en el array del mapa. (2026-07-05 20-32-14)
 Bug N002: Error al cambiar de nivel, las balas no se borran y siguen su camino en el siguiente nivel, esto puede causar un error no común el cual las paredes se pueden romper incluso siendo '%'. (2026-07-05 20-38-08)
+Bug N003: Error al disparar al lado de un objeto que en circunstancias normales no debería borrarse, esto no afecta a las hitboxs del array. (2026-07-06 00-39-53) 
