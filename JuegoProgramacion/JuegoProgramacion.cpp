@@ -11,7 +11,7 @@
 #include "ticks.h"
 
 
-int tick = 0;
+extern int tick = 0;
 
 int cops = 0;
 

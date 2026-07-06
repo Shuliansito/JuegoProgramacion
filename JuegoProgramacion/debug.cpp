@@ -25,7 +25,7 @@ void updateDebug() {
 		gotoxy(0, 22);
 		std::cout << GRIS << "Nivel: " << NARANJA << player1.nivel << RESET;
 		gotoxy(0, 23);
-		std::cout << GRIS << "Last_Key: " << NARANJA << u_tecla << RESET;
+		std::cout << GRIS << "Tick " << NARANJA << tick << RESET;
 		
 		
 	

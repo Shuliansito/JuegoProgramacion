@@ -25,7 +25,7 @@ void actualizarBalas(std::string mapa[]) {
         for (int i = 0; i < MAX_BULLETS; i++) {
             if (!bullets[i].activa) continue;
 
-            if (mapa[bullets[i].y][bullets[i].x] == '%') {continue;}
+            if (mapa[bullets[i].y][bullets[i].x] == '%') continue;
 
             gotoxy(25 + bullets[i].x, 3 + bullets[i].y);
             std::cout << BG << " " << RESET;

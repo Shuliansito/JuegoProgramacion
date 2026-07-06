@@ -5,6 +5,7 @@
 #include "classes.h"
 
 extern int guardiasNivel2;
+extern int tick;
 extern bool canUseWeapon;
 class Bullet {
 public:
