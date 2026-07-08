@@ -49,12 +49,15 @@ int main()
         {
             actualizarBalas(niveles[nivelglobal - 1]);
             playerHelps();
+            if (shootDelay > 0) { shootDelay--; }
+            
             tick++;
         }
 
        
         updateDebug();
         esperarTick();
+        if (shootDelay < 0) {shootDelay = 0;}
     }
 
 

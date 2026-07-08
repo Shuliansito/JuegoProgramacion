@@ -3,10 +3,13 @@
 #include <string>
 #include "Shuli.h"
 #include "classes.h"
+#include "gameLogic.h"
 
 extern int guardiasNivel2;
 extern int tick;
+extern int shootDelay;
 extern bool canUseWeapon;
+
 class Bullet {
 public:
     int x;

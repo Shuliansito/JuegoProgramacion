@@ -2,9 +2,14 @@
 
 Bullet bullets[MAX_BULLETS];
 bool canUseWeapon = false;
+int shootDelay = 0;
 
 void dispararBala(int x, int y, int dx, int dy) {
+    
+    shootDelay = 5;
+    
     if (canUseWeapon){
+        Beep(100, 10);
         for (int i = 0; i < MAX_BULLETS; i++) {
             if (!bullets[i].activa) {
                 bullets[i].x = x;
@@ -15,7 +20,9 @@ void dispararBala(int x, int y, int dx, int dy) {
                 return;
             }
         }
+        
     }
+    
 }
 
 void actualizarBalas(std::string mapa[]) {

@@ -4,13 +4,14 @@ int debugKey=1;
 void updateDebug() {
 	
 	if (debugKey % 2 == 0) {
-		gotoxy(0, 20);
-		std::cout << "                     " << RESET;
-		gotoxy(0, 21);
-		std::cout << "                     " << RESET;
-		gotoxy(0, 22);
-		std::cout << "                     " << RESET;
-
+		for (int i = 0; i < 30; i++) {
+			gotoxy(0, i);
+			std::cout << "                    " << RESET;
+		}
+		gotoxy(0, 7);
+		std::cout << GRIS << "-Global-"<< RESET;
+		gotoxy(0, 8);
+		std::cout << GRIS << "Tick: " << NARANJA << tick << RESET;
 		gotoxy(0, 14);
 		std::cout << BLANCO << "-Guardias- "<< RESET;
 		gotoxy(0, 15);
@@ -24,8 +25,11 @@ void updateDebug() {
 		std::cout << GRIS << "Player_Y: " << ROJO << player1.Y << RESET;
 		gotoxy(0, 22);
 		std::cout << GRIS << "Nivel: " << NARANJA << player1.nivel << RESET;
+		
 		gotoxy(0, 23);
-		std::cout << GRIS << "Tick " << NARANJA << tick << RESET;
+		std::cout << GRIS << "Can_Shoot: " << NARANJA << canUseWeapon << RESET;
+		gotoxy(0, 24);
+		std::cout << GRIS << "Shoot_Delay: " << GRIS << shootDelay << RESET;
 		
 		
 	

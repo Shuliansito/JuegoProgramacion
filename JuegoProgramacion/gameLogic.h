@@ -21,6 +21,7 @@ extern int nivelglobal;
 extern int prevX1;
 extern int prevY1;
 extern int nivelActual;
+
 extern bool canPass_1;
 extern bool canPass_2;
 extern bool canPass_3;

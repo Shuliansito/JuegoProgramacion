@@ -8,6 +8,7 @@ bool playing = true;
 int nivelglobal = 1;
 int prevX1;
 int prevY1;
+
 int nivelActual;
 bool canPass_1 = false;
 bool canPass_2 = false;
@@ -169,13 +170,14 @@ void inputMovement()
         else if (tecla == 'a') player1.X--;
         else if (tecla == 'w') player1.Y--;
         else if (tecla == 's') player1.Y++;
-        if (tick % 3 == 0) {
+        else if (tecla == 'm') debugKey++;
+        if (shootDelay<=0) {
             if (tecla == 'j') dispararBala(player1.X - 1, player1.Y, -1, 0);
             else if (tecla == 'l') dispararBala(player1.X + 1, player1.Y, 1, 0);
             else if (tecla == 'i') dispararBala(player1.X, player1.Y - 1, 0, -1);
             else if (tecla == 'k') dispararBala(player1.X, player1.Y + 1, 0, 1);
         }
-        else if (tecla == 'm') debugKey++;
+        
         actionCollision();
     }
 }
