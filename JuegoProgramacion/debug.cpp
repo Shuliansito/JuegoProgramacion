@@ -24,11 +24,13 @@ void updateDebug() {
 		gotoxy(0, 21);
 		std::cout << GRIS << "Player_Y: " << ROJO << player1.Y << RESET;
 		gotoxy(0, 22);
+		std::cout << GRIS << "Health: " << ROJO << player1.vida << RESET;
+		gotoxy(0, 23);
 		std::cout << GRIS << "Nivel: " << NARANJA << player1.nivel << RESET;
 		
-		gotoxy(0, 23);
-		std::cout << GRIS << "Can_Shoot: " << NARANJA << canUseWeapon << RESET;
 		gotoxy(0, 24);
+		std::cout << GRIS << "Can_Shoot: " << NARANJA << player1.canShootWeapong << RESET;
+		gotoxy(0, 25);
 		std::cout << GRIS << "Shoot_Delay: " << GRIS << shootDelay << RESET;
 		
 		

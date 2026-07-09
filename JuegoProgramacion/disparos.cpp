@@ -8,8 +8,8 @@ void dispararBala(int x, int y, int dx, int dy) {
     
     shootDelay = 5;
     
-    if (canUseWeapon){
-        Beep(100, 10);
+    if (player1.canShootWeapong){
+        Beep(1000, 10);
         for (int i = 0; i < MAX_BULLETS; i++) {
             if (!bullets[i].activa) {
                 bullets[i].x = x;
@@ -26,7 +26,7 @@ void dispararBala(int x, int y, int dx, int dy) {
 }
 
 void actualizarBalas(std::string mapa[]) {
-    if (canUseWeapon) {
+    if (player1.canShootWeapong) {
 
     
         for (int i = 0; i < MAX_BULLETS; i++) {

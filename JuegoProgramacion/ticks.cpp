@@ -1,5 +1,7 @@
 #include "ticks.h"
 
+// Lo unico que copie de afuera, no tuve ganas de pensar este 
+//codigo mucho
 
 double tickTime;
 double accumulator;

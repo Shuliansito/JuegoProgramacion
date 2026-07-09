@@ -7,13 +7,13 @@ void dibujarJugador(int x, int y, std::string simbolo, const std::string color)
     std::cout << color << BG << BOLD << simbolo<<BG_NO<<RESET;
 }
 
-player player1(1, 6, "O", nivelglobal, NARANJA);
+player player1(1, 6, "O", nivelglobal, NARANJA, true);
 
 void player::recibirDano(int dm)
 {
-    this->vida -= dm;
-    if (this->vida < 0)
+    player1.vida -= dm;
+    if (player1.vida < 0)
     {
-        this->vida = 0;
+        player1.vida = 0;
     }
 }
