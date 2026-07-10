@@ -5,6 +5,7 @@
 #include <string>
 #include <windows.h>
 #include <conio.h>
+#include "classes.h"
 #include "Shuli.h"
 
 const int cantMapas = 3; //IMPORTANTE: Actualizar este valor por la cantidad de mapas

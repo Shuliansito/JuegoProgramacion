@@ -23,5 +23,3 @@ bool esPisable(char c);
 void Guardia_Mover(Guardia& g, std::string mapa[]);
 
 void Guardia_Update(std::string nivel1[], std::string nivel2[], std::string nivel3[], int tickActual);
-
-void Guardia_Spawn();

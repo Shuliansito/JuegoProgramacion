@@ -65,7 +65,7 @@ void Guardia_Update(std::string nivel1[], std::string nivel2[], std::string nive
 
     for (int i = 0; i < cantGuardias; i++) {
         if (!guardia[i].vivo) continue;
-        if (guardia[i].nivelGuardia != nivelglobal) continue;
+        if (guardia[i].nivelGuardia != player1.nivel) continue;
         Guardia& g = guardia[i];// Paso por referencia porque sino no se modifica la ubicacion.
         if (g.nivelGuardia == 1) Guardia_Mover(g, nivel1);
         else if (g.nivelGuardia == 2) Guardia_Mover(g, nivel2);
@@ -73,7 +73,3 @@ void Guardia_Update(std::string nivel1[], std::string nivel2[], std::string nive
     }
 }
 
-void Guardia_Spawn() {
-    Guardia_Ini(5, 8, 2);//Guardia 1 nivel 2
-    Guardia_Ini(7, 14, 2);//Guardia 2 nivel 2
-}

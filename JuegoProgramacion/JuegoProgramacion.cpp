@@ -36,7 +36,7 @@ int main()
 
 
     dibujarMapa(niveles[player1.nivel-1], 20);
-    Guardia_Spawn();
+    
     
     iniciarTicks(20);
     std::cout << RESET;
@@ -51,7 +51,7 @@ int main()
         if (debeEjecutarTick())
         {
             Guardia_Update(level1, level2, level3, tick);
-            actualizarBalas(niveles[nivelglobal - 1]);
+            actualizarBalas(niveles[player1.nivel - 1]);
             playerHelps();
             if (shootDelay > 0) { shootDelay--; }
             

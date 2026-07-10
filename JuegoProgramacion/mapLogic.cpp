@@ -165,15 +165,15 @@ void dibujarMapa(string mapa[], int filas)
 
 void playerHelps() {
 
-    if(nivelglobal == 1) {
+    if(player1.nivel == 1) {
         gotoxy(40, 23);
         cout << GRIS << misiones[0] << MAGENTA << "RIFLE" << GRIS << " para abrir la puerta" << RESET;
     }
-    else if(nivelglobal == 2) {
+    else if(player1.nivel == 2) {
         gotoxy(39, 23);
         cout << GRIS << misiones[1] << AZUL << "GUARDIAS" << RESET;
     }
-    else if(nivelglobal == 0) {
+    else if(player1.nivel == 0) {
         gotoxy(0, 20);
         cout << "                                                                     " << RESET;
 	}

@@ -37,7 +37,14 @@ int collision(int x, int y, string mapa[])
     return 0;
 }
 
+//Spawn Guardias
 
+void cargarGuardias() {
+    if (player1.nivel == 2&&player1.guardiasMatados!=2) {
+        Guardia_Ini(5, 8, 2);//Guardia 1 nivel 2
+        Guardia_Ini(7, 14, 2);//Guardia 2 nivel 2
+    }
+}
 
 void actionCollision() {
     int nivelActual = player1.nivel - 1;
@@ -72,6 +79,7 @@ void actionCollision() {
             player1.X = 1;
             player1.Y = 12;
         }
+        cargarGuardias();
     }
     else if (col == 4) {
         player1.nivel--;
@@ -183,4 +191,6 @@ void inputMovement()
         actionCollision();
     }
 }
+
+
 
