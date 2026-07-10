@@ -19,7 +19,7 @@ void Guardia_Ini(int x, int y, int nivel) {
 bool esPisable(char c) {
     return c == ' ' || c == 'X' || c == '&';
 }
-
+//a
 void Guardia_Mover(Guardia& g, std::string mapa[]) {
     mapa[g.y][g.x] = ' ';
     gotoxy(25 + g.x, 3 + g.y);
