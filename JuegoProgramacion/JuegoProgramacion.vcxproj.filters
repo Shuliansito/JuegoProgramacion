@@ -15,32 +15,32 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="JuegoProgramacion.cpp">
-      <Filter>Archivos de origen</Filter>
+    <ClCompile Include="ticks.cpp">
+      <Filter>Archivos de encabezado</Filter>
     </ClCompile>
     <ClCompile Include="classes.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de encabezado</Filter>
     </ClCompile>
     <ClCompile Include="debug.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="mapLogic.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="menu.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="Shuli.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="ticks.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="gameLogic.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de encabezado</Filter>
     </ClCompile>
     <ClCompile Include="disparos.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de encabezado</Filter>
+    </ClCompile>
+    <ClCompile Include="gameLogic.cpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClCompile>
+    <ClCompile Include="JuegoProgramacion.cpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClCompile>
+    <ClCompile Include="mapLogic.cpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClCompile>
+    <ClCompile Include="menu.cpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClCompile>
+    <ClCompile Include="Shuli.cpp">
+      <Filter>Archivos de encabezado</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -63,12 +63,6 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="ticks.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="resource1.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="resource2.h">
