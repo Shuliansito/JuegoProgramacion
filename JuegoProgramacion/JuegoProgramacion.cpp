@@ -5,6 +5,7 @@
 
 #include "Shuli.h"
 #include "gameLogic.h"
+#include "Patrullas.h"
 #include "menu.h"
 #include "disparos.h"
 #include "classes.h"
@@ -32,9 +33,10 @@ int main()
         
     } 
     
-   
 
-    dibujarMapa(level1, 20);
+
+    dibujarMapa(niveles[player1.nivel-1], 20);
+    Guardia_Spawn();
     
     iniciarTicks(20);
     std::cout << RESET;
@@ -48,6 +50,7 @@ int main()
 
         if (debeEjecutarTick())
         {
+            Guardia_Update(level1, level2, level3, tick);
             actualizarBalas(niveles[nivelglobal - 1]);
             playerHelps();
             if (shootDelay > 0) { shootDelay--; }

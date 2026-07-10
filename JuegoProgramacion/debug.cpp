@@ -15,7 +15,7 @@ void updateDebug() {
 		gotoxy(0, 14);
 		std::cout << BLANCO << "-Guardias- "<< RESET;
 		gotoxy(0, 15);
-		std::cout << GRIS << "Guardias Lvl_2: " << AZUL << guardiasNivel2 << RESET;
+		std::cout << GRIS << "Guardias: " << AZUL << cantGuardias << RESET;
 
 		gotoxy(0, 19);
 		std::cout << BLANCO << "-Player Info- "<<RESET;
@@ -32,6 +32,8 @@ void updateDebug() {
 		std::cout << GRIS << "Can_Shoot: " << NARANJA << player1.canShootWeapong << RESET;
 		gotoxy(0, 25);
 		std::cout << GRIS << "Shoot_Delay: " << GRIS << shootDelay << RESET;
+		gotoxy(0, 26);
+		std::cout << GRIS << "Guardias_Matados: " << GRIS << player1.guardiasMatados << RESET;
 		
 		
 	

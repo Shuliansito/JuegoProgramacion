@@ -54,8 +54,16 @@ void actualizarBalas(std::string mapa[]) {
 
             if (tile == 'P') {
                 mapa[ny][nx] = ' ';
-                guardiasNivel2--;
-                if (guardiasNivel2 < 0) guardiasNivel2 = 0;
+                cantGuardias--;
+                if (cantGuardias < 0) cantGuardias = 0;
+                //Logica para matar al guardia
+                for (int j = 0; j < cantGuardias; j++) {
+                    if (guardia[j].x == nx && guardia[j].y == ny) {
+                        guardia[j].vivo = false;
+                        break;
+                    }
+                }
+                player1.guardiasMatados++;
 
                 gotoxy(25 + nx, 3 + ny);
                 std::cout << BG << " " << RESET;

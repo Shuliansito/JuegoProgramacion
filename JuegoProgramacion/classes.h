@@ -18,8 +18,9 @@ public:
     std::string color;
     int vida;
     bool canShootWeapong;
+    int guardiasMatados;
 
-    player(int x, int y, std::string s, int n, std::string c, bool canUWeapon)
+    player(int x, int y, std::string s, int n, std::string c, bool canUWeapon, int gKilled)
     {
         X = x;
         Y = y;
@@ -28,6 +29,8 @@ public:
         color = c;
         canShootWeapong = canUWeapon;
         vida = 100;
+        guardiasMatados = gKilled;
+
 
     }
 

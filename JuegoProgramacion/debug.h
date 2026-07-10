@@ -2,6 +2,7 @@
 #include "Shuli.h"
 #include "classes.h"
 #include "gameLogic.h"
+#include "Patrullas.h"
 
 
 extern int guardiasNivel2;

@@ -5,7 +5,7 @@ using namespace std;
 
 bool playing = true;
 
-int nivelglobal = 1;
+int nivelglobal = player1.nivel;
 int prevX1;
 int prevY1;
 
@@ -20,7 +20,7 @@ char u_tecla=tecla;
 //Nivel 2
 int guardiasNivel2 = 2;
 bool puertaNivel2Abierta = false;
-string* niveles[3] = { level1, level2, level3 };
+string* niveles[cantMapas] = { level1, level2, level3 };
 
 
 int collision(int x, int y, string mapa[])
@@ -40,7 +40,7 @@ int collision(int x, int y, string mapa[])
 
 
 void actionCollision() {
-    int nivelActual = nivelglobal - 1;
+    int nivelActual = player1.nivel - 1;
 
     int col = collision(player1.X, player1.Y, niveles[nivelActual]);
 
@@ -51,49 +51,49 @@ void actionCollision() {
     }
     else if (col == 2)
     {
-        nivelglobal++;
+        player1.nivel++;
 
-        if (nivelglobal > 3)
-            nivelglobal = 1;
+        if (player1.nivel > 3)
+            player1.nivel = 1;
 
-        player1.nivel = nivelglobal;
+        player1.nivel = player1.nivel;
 
-        dibujarMapa(niveles[nivelglobal - 1], 20);
+        dibujarMapa(niveles[player1.nivel - 1], 20);
 
-        if (nivelglobal == 1) {
+        if (player1.nivel == 1) {
             player1.X = 1;
             player1.Y = 6;
         }
-        else if (nivelglobal == 2) {
+        else if (player1.nivel == 2) {
             player1.X = 1;
             player1.Y = 1;
         }
-        else if (nivelglobal == 3) {
+        else if (player1.nivel == 3) {
             player1.X = 1;
             player1.Y = 12;
         }
     }
     else if (col == 4) {
-        nivelglobal--;
+        player1.nivel--;
 
-        if (nivelglobal > 3)
-            nivelglobal = 1;
-        if (nivelglobal < 0)
-            nivelglobal = 1;
+        if (player1.nivel > 3)
+            player1.nivel = 1;
+        if (player1.nivel < 0)
+            player1.nivel = 1;
 
-        player1.nivel = nivelglobal;
+       
 
-        dibujarMapa(niveles[nivelglobal - 1], 20);
+        dibujarMapa(niveles[player1.nivel - 1], 20);
 
-        if (nivelglobal == 1) {
+        if (player1.nivel == 1) {
             player1.X = 63;
             player1.Y = 18;
         }
-        else if (nivelglobal == 2) {
+        else if (player1.nivel == 2) {
             player1.X = 63;
             player1.Y = 12;
         }
-        else if (nivelglobal == 3) {
+        else if (player1.nivel == 3) {
             player1.X = 45;
             player1.Y = 12;
         }
@@ -104,8 +104,8 @@ void actionCollision() {
     else if (col == 5) { canPass_1 = true; player1.canShootWeapong = true; }
 
     if (!puertaNivel2Abierta &&
-        nivelglobal == 2 &&
-        guardiasNivel2==0)
+        player1.nivel == 2 &&
+        player1.guardiasMatados==2)
     {
         puertaNivel2Abierta = true;
 
@@ -164,13 +164,14 @@ void inputMovement()
         prevY1 = player1.Y;
 
         
-
+        //IMPORTANTE: Teclas (si... eso)
         
         if (tecla == 'd') player1.X++;
         else if (tecla == 'a') player1.X--;
         else if (tecla == 'w') player1.Y--;
         else if (tecla == 's') player1.Y++;
         else if (tecla == 'm') debugKey++;
+        else if (tecla == 'h') player1.guardiasMatados++;
         
         if (shootDelay<=0) {
             if (tecla == 'j') dispararBala(player1.X - 1, player1.Y, -1, 0);

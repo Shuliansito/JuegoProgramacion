@@ -132,6 +132,7 @@
     <ClCompile Include="JuegoProgramacion.cpp" />
     <ClCompile Include="mapLogic.cpp" />
     <ClCompile Include="menu.cpp" />
+    <ClCompile Include="Patrullas.cpp" />
     <ClCompile Include="Shuli.cpp" />
     <ClCompile Include="ticks.cpp" />
   </ItemGroup>
@@ -142,6 +143,7 @@
     <ClInclude Include="gameLogic.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="mapLogic.h" />
+    <ClInclude Include="Patrullas.h" />
     <ClInclude Include="resource2.h" />
     <ClInclude Include="Shuli.h" />
     <ClInclude Include="ticks.h" />

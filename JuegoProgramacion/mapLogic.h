@@ -7,7 +7,7 @@
 #include <conio.h>
 #include "Shuli.h"
 
-
+const int cantMapas = 3; //IMPORTANTE: Actualizar este valor por la cantidad de mapas
 using namespace std;
 extern bool canPass_1;
 extern bool canPass_2;
