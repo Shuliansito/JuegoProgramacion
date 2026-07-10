@@ -54,15 +54,18 @@ void actualizarBalas(std::string mapa[]) {
 
             if (tile == 'P') {
                 mapa[ny][nx] = ' ';
-                cantGuardias--;
-                if (cantGuardias < 0) cantGuardias = 0;
-                //Logica para matar al guardia
                 for (int j = 0; j < cantGuardias; j++) {
-                    if (guardia[j].x == nx && guardia[j].y == ny) {
+                    if (guardia[j].x == bullets[i].x && guardia[j].y == bullets[i].y) {
                         guardia[j].vivo = false;
+                        gotoxy(30, 0);
+                        cout << BG_NO << "Guardia "<<j<<" Muerto"<<RESET;
                         break;
                     }
                 }
+                //cantGuardias--;
+                if (cantGuardias < 0) cantGuardias = 0;
+                //Logica para matar al guardia
+                
                 player1.guardiasMatados++;
 
                 gotoxy(25 + nx, 3 + ny);

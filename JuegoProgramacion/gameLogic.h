@@ -36,4 +36,6 @@ int collision(int x, int y, string mapa[]);
 
 void actionCollision();
 
+void cargarGuardias();
+
 void inputMovement();

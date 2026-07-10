@@ -99,9 +99,10 @@ string misiones[3] = {
 
 
 int chooseMap() {
-    if (nivelglobal == 1) return 1;
-    if (nivelglobal == 2) return 2;
-    if (nivelglobal == 3) return 3;
+    if (player1.nivel == 1) return 1;
+    if (player1.nivel == 2) return 2;
+    if (player1.nivel == 3) return 3;
+    return 0;
 }
 void dibujarMapa(string mapa[], int filas)
 {

@@ -7,7 +7,7 @@ void dibujarJugador(int x, int y, std::string simbolo, const std::string color)
     std::cout << color << BG << BOLD << simbolo<<BG_NO<<RESET;
 }
 
-player player1(1, 6, "O", 1, NARANJA, false, 0);
+player player1(1, 6, "O", 2, NARANJA, true, 0);
 
 void player::recibirDano(int dm)
 {
