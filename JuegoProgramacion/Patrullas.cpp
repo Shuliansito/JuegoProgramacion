@@ -25,27 +25,24 @@ bool esPisable(char c) {
 //----------------------------------------------------------//
 //  Costo mucho hacer que esto funcione, odio los punteros  //
 //----------------------------------------------------------//
-
-
-
 void Guardia_Mover(Guardia& g, std::string mapa[]) {
     mapa[g.y][g.x] = ' ';
     gotoxy(25 + g.x, 3 + g.y);
     std::cout << BG << " " << RESET;
     
     //Opciones disponibles de movimiento en X y Y
-    int dx[4] = { 1, -1, 0,  0 };
-    int dy[4] = { 0,  0, 1, -1 };
+    int direccionx[4] = { 1, -1, 0,  0 };
+    int direcciony[4] = { 0,  0, 1, -1 };
 
     int opciones[4] = {};
     int cantOpciones = 0;
 
     //Mucho texto
     for (int d = 0; d < 4; d++) {
-        int nx = g.x + dx[d];
-        int ny = g.y + dy[d];
-        if (ny >= 0 && ny < 20 && nx >= 0 && nx < (int)mapa[ny].size()) {
-            if (esPisable(mapa[ny][nx])) {
+        int nuevax = g.x + direccionx[d];
+        int nuevay = g.y + direcciony[d];
+        if (nuevay >= 0 && nuevay < 20 && nuevax >= 0 && nuevax < (int)mapa[nuevay].size()) {
+            if (esPisable(mapa[nuevay][nuevax])) {
                 opciones[cantOpciones] = d;
                 cantOpciones++;
             }
@@ -55,8 +52,8 @@ void Guardia_Mover(Guardia& g, std::string mapa[]) {
     // choice elige aleatoriamente entre 4 opciones y se le suma el numero del array de dx y dy
     if (cantOpciones > 0) {
         int choice = opciones[rand() % cantOpciones];
-        g.x += dx[choice];
-        g.y += dy[choice];
+        g.x += direccionx[choice];
+        g.y += direcciony[choice];
     }
 
     
