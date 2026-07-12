@@ -21,8 +21,9 @@
 #include "ticks.h"
 
 
-extern int tick = 0;
 
+
+extern int tick = 0;
 int cops = 0;
 
 int main()
@@ -34,15 +35,11 @@ int main()
     
 
     
-    _getch();
+
     dibujarMapa(level0, 20);
 
 
     while (inMenu) {
-        gotoxy(60, 11);
-        cout << NARANJA << "ENTER" << RESET;
-        
-        
         menuLogic();
         
     } 

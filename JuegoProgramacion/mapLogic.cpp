@@ -10,9 +10,9 @@ string level0[20] = {
     "             %            Bienvenido  a            %              ",
     "             %            PRISON ESCAPE            %              ",
     "             %                                     %              ",
-    "             %                                     %              ",
-    "             %           Presiona                  %              ",
-    "             %             para jugar              %              ",
+    "             %            Jugar                    %              ",
+    "             %            Controles                %              ",
+    "             %            Salir                    %              ",
     "             %                                     %              ",
     "             %                                     %              ",
     "             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%              ",
@@ -274,10 +274,10 @@ void playerHelps() {
 }
 
 void mostrarHistoria() {
-    if (player1.nivel == 1&&player1.historia1Leida==false) {dibujarSubNivel(level1_1, 20);player1.historia1Leida = true;}
-    if (player1.nivel == 2 && player1.historia1Leida == true) { dibujarSubNivel(level2_1, 20); player1.historia1Leida = true;}
+    if (player1.nivel == 1 &&player1.historia1Leida == false) {dibujarSubNivel(level1_1, 20);player1.historia1Leida = true; while (_getch() != '\r');}
+    if (player1.nivel == 2 && player1.historia2Leida == false) {dibujarSubNivel(level2_1, 20);player1.historia2Leida = true; while (_getch() != '\r');}
 
-    char tecla;
-    do {tecla = _getch();} while (tecla != '\r');
+    
+    
     
 }
