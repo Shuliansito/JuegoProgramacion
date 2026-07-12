@@ -62,12 +62,19 @@ void actionCollision() {
     }
     else if (col == 2)
     {
+
+        mostrarHistoria();
         player1.nivel++;
 
         if (player1.nivel > 3)
             player1.nivel = 1;
 
         player1.nivel = player1.nivel;
+        // Borrar las balas al cambiar de nivel, esto hace que no se queden
+        // actualizando en el siguiente mapa [BUG N002 FIXED]
+        for (int i = 0; i < MAX_BULLETS; i++) {
+            bullets[i].activa = false;
+        }
 
         dibujarMapa(niveles[player1.nivel - 1], 20);
 
@@ -94,6 +101,9 @@ void actionCollision() {
             player1.nivel = 1;
 
        
+        for (int i = 0; i < MAX_BULLETS; i++) {
+            bullets[i].activa = false;
+        }
 
         dibujarMapa(niveles[player1.nivel - 1], 20);
 

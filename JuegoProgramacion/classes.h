@@ -8,6 +8,8 @@
 
 extern int nivelglobal;
 
+
+
 class player
 {
 public:
@@ -19,6 +21,9 @@ public:
     int vida;
     bool canShootWeapong;
     int guardiasMatados;
+
+    bool historia1Leida = false;
+    bool historia2Leida = false;
 
     player(int x, int y, std::string s, int n, std::string c, bool canUWeapon, int gKilled)
     {
@@ -44,4 +49,6 @@ void dibujarJugador(int x, int y, std::string simbolo, const std::string color);
 
 
 extern player player1;
+
+
 

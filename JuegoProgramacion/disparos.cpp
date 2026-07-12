@@ -32,6 +32,11 @@ void actualizarBalas(std::string mapa[]) {
         for (int i = 0; i < MAX_BULLETS; i++) {
             if (!bullets[i].activa) continue;
 
+            if (bullets[i].y < 0 || bullets[i].y >= 20 || bullets[i].x < 0 || bullets[i].x >= (int)mapa[bullets[i].y].size()) {
+                bullets[i].activa = false; continue;
+            }
+
+            //Primero detecto si es pared antes de hacer el cambio de posicion [BUG N003 FIXED]
             if (mapa[bullets[i].y][bullets[i].x] == '%') continue;
 
             gotoxy(25 + bullets[i].x, 3 + bullets[i].y);

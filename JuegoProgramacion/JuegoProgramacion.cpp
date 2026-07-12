@@ -32,7 +32,12 @@ int main()
     system("title Prison Escape");
     showCursor(false);
     
+
+    
+    _getch();
     dibujarMapa(level0, 20);
+
+
     while (inMenu) {
         gotoxy(60, 11);
         cout << NARANJA << "ENTER" << RESET;
