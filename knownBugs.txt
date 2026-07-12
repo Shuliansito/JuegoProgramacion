@@ -1,2 +1,0 @@
-Bug N001: Error al disparar balas a las puertas verdes, las mismas desaparecen de la pantalla pero no en el array del mapa. (2026-07-05 20-32-14)
-Bug N002: Error al disparar balas a las paredes de la zona abajo a la derecha del nivel dos, posiblemente el cambio de tile al disparar hace que no detecte 

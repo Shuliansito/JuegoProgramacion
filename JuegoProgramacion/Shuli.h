@@ -9,11 +9,6 @@
 //Defines para el LOG 
 #ifdef _DEBUG
 #define LOG(msg)              OutputDebugStringA((std::string(msg) + "\n").c_str())
-#define LOG_INPUT(msg)        OutputDebugStringA(("[INPUT] "    + std::string(msg) + "\n").c_str())
-#define LOG_DISPARO(msg)      OutputDebugStringA(("[DISPARO] "  + std::string(msg) + "\n").c_str())
-#define LOG_GUARDIA(msg)      OutputDebugStringA(("[GUARDIA] "  + std::string(msg) + "\n").c_str())
-#define LOG_COLISION(msg)     OutputDebugStringA(("[COLISION] " + std::string(msg) + "\n").c_str())
-#define LOG_NIVEL(msg)        OutputDebugStringA(("[NIVEL] "    + std::string(msg) + "\n").c_str())
 #define STR(x)                std::to_string(x)
 #endif
 

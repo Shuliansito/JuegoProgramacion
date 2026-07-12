@@ -182,7 +182,7 @@ void inputMovement()
 
         char tecla = _getch();
         LOG_FILE(std::string("[INPUT] Input: ") + tecla);
-        LOG_INPUT(std::string("Input: ") + tecla);
+        LOG(std::string("[INPUT] Input: ") + tecla);
 
         prevX1 = player1.X;
         prevY1 = player1.Y;

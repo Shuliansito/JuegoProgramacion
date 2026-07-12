@@ -35,7 +35,7 @@ int distMan(int x1, int y1, int x2, int y2)
 
 
 void LOG_FILE(std::string msg) {
-    std::ofstream file("debuglog.log", std::ios::app);
+    std::ofstream file("../DebugLog.log", std::ios::app);
     file << msg << "\n";
     file.close();
-}
+}//Muy buen descubrimiento, me sirve para debugear y hacer un analisis de los bugs
