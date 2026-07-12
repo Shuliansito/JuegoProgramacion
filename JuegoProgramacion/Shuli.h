@@ -4,6 +4,18 @@
 #include <string>
 #include <windows.h>
 #include <conio.h>
+#include <fstream> 
+
+//Defines para el LOG 
+#ifdef _DEBUG
+#define LOG(msg)              OutputDebugStringA((std::string(msg) + "\n").c_str())
+#define LOG_INPUT(msg)        OutputDebugStringA(("[INPUT] "    + std::string(msg) + "\n").c_str())
+#define LOG_DISPARO(msg)      OutputDebugStringA(("[DISPARO] "  + std::string(msg) + "\n").c_str())
+#define LOG_GUARDIA(msg)      OutputDebugStringA(("[GUARDIA] "  + std::string(msg) + "\n").c_str())
+#define LOG_COLISION(msg)     OutputDebugStringA(("[COLISION] " + std::string(msg) + "\n").c_str())
+#define LOG_NIVEL(msg)        OutputDebugStringA(("[NIVEL] "    + std::string(msg) + "\n").c_str())
+#define STR(x)                std::to_string(x)
+#endif
 
 const std::string ESCONDER = "\033[?25l";
 const std::string MOSTRAR = "\033[?25h";
@@ -49,3 +61,7 @@ void gotoxy(int x, int y);
 bool keyPressed();
 
 int distMan(int x1, int y1, int x2, int y2);
+
+
+//Poner lo que este en la consola en un archivo "debug.log"
+void LOG_FILE(std::string msg);

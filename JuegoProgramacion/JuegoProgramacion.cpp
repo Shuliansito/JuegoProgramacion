@@ -33,7 +33,7 @@ int main()
     system("title Prison Escape");
     showCursor(false);
     
-
+    
     
 
     dibujarMapa(level0, 20);

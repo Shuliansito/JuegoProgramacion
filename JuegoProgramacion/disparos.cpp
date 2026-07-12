@@ -17,9 +17,13 @@ void dispararBala(int x, int y, int dx, int dy) {
                 bullets[i].dx = dx;
                 bullets[i].dy = dy;
                 bullets[i].activa = true;
+                LOG_FILE(std::string("[DISPARO] Nueva bala en ") + std::string("X: ") + STR(bullets[i].x) + std::string(" Y: ") + STR(bullets[i].y));
+                LOG_DISPARO(std::string("Nueva bala en ") + std::string("X: ") + STR(bullets[i].x) + std::string(" Y: ") + STR(bullets[i].y));//Aviso de nueva bala en debug
                 return;
             }
+            
         }
+        
         
     }
     

@@ -174,13 +174,15 @@ void inputMovement()
 
     if (_kbhit())
     {
-
+        
         gotoxy(25 + player1.X, 3 + player1.Y);
         cout << BG << " ";
 
 
 
         char tecla = _getch();
+        LOG_FILE(std::string("[INPUT] Input: ") + tecla);
+        LOG_INPUT(std::string("Input: ") + tecla);
 
         prevX1 = player1.X;
         prevY1 = player1.Y;
@@ -196,10 +198,10 @@ void inputMovement()
         else if (tecla == 'h') player1.guardiasMatados++;
         
         if (shootDelay<=0) {
-            if (tecla == 'j') dispararBala(player1.X - 1, player1.Y, -1, 0);
-            else if (tecla == 'l') dispararBala(player1.X + 1, player1.Y, 1, 0);
-            else if (tecla == 'i') dispararBala(player1.X, player1.Y - 1, 0, -1);
-            else if (tecla == 'k') dispararBala(player1.X, player1.Y + 1, 0, 1);
+            if (tecla == 'j') { dispararBala(player1.X - 1, player1.Y, -1, 0);}
+            else if (tecla == 'l') { dispararBala(player1.X + 1, player1.Y, 1, 0);}
+            else if (tecla == 'i') { dispararBala(player1.X, player1.Y - 1, 0, -1);}
+            else if (tecla == 'k') { dispararBala(player1.X, player1.Y + 1, 0, 1);}
         }
         
         actionCollision();
