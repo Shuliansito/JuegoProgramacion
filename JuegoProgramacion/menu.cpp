@@ -21,7 +21,13 @@ void menuLogic() {
 
 		if (tecla == '\r') {
 			if (opcion == 0)inMenu = false;
-			if (opcion == 1)inMenu = false;
+			if (opcion == 1) {
+				dibujarMapa(controles, 20);
+				gotoxy(42, 16);
+				cout << GRIS << "Pulse cualquier tecla para salir";
+				_getch(); 
+				dibujarMapa(level0, 20);
+			}
 			if (opcion == 2)exit(0);
 		}
 	}

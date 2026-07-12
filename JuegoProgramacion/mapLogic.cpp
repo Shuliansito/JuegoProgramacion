@@ -1,7 +1,28 @@
 ﻿#include "mapLogic.h"
 
 
-
+string controles[20] = {
+    "                                                                  ",
+    "                                                                  ",
+    "             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%              ",
+    "             %                                     %              ",
+    "             %              CONTROLES              %              ",
+    "             %                                     %              ",
+    "             %      WASD - Para moverse            %              ",
+    "             %                                     %              ",
+    "             %      JIKL - Para disparar           %              ",
+    "             %                                     %              ",
+    "             %                                     %              ",
+    "             %                                     %              ",
+    "             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%              ",
+    "                                                                  ",
+    "                                                                  ",
+    "                                                                  ",
+    "                                                                  ",
+    "                                                                  ",
+    "                                                                  ",
+    "                                                                  "
+};
 string level0[20] = {
     "                                                                  ",
     "                                                                  ",
@@ -156,7 +177,7 @@ void dibujarMapa(string mapa[], int filas)
     
     
     cout << BG_NO;
-    if (mapa == level0) {
+    if (mapa == level0||mapa==controles) {
         for (int y = 0; y < filas; y++)
         {
             gotoxy(25, 3 + y);

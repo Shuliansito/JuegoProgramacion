@@ -1,4 +1,3 @@
-
 #pragma once
 
 #include <iostream>
@@ -14,6 +13,7 @@ extern bool canPass_1;
 extern bool canPass_2;
 extern bool canPass_3;
 extern int nivelglobal;
+extern string controles[20]; 
 extern string level0[20];
 extern string level1[20];
 extern string level1_1[20];
@@ -31,5 +31,4 @@ void playerHelps();
 int chooseMap();
 
 void mostrarHistoria();
-
 
