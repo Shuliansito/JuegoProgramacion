@@ -155,6 +155,28 @@ string level3[20] = {
     "...............................................",
     "..............................................."
 };
+string level4[20] = {
+    "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",
+    "%                                                                                       %",
+    "%                                                                                       %",
+    "%                                                                                       %",
+    "%                                                                                       %",
+    "%                                                                                       %",
+    "%                                                                                       %",
+    "%                                                                                       %",
+    "%                                                                                       %",
+    "%                                                                                       %",
+    "%                                                                                       %",
+    "D                                                                                       %",
+    "D                                                                                       %",
+    "%                                                                                       %",
+    "%                                                                                       %",
+    "%                                                                                       %",
+    "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",
+    ".........................................................................................",
+    ".........................................................................................",
+    "........................................................................................."
+};
 
 string misiones[3] = {
     "Agarrá el ",
@@ -174,6 +196,7 @@ void dibujarMapa(string mapa[], int filas)
     
     cout << "\033[0m";
     cout << BG_NO;
+   
     
     
     cout << BG_NO;
@@ -203,12 +226,14 @@ void dibujarMapa(string mapa[], int filas)
     for (int y = 0; y < filas; y++)
     {
         gotoxy(25, 3 + y);
+        
 
         for (int x = 0; x < mapa[y].size(); x++)
         {
+            
             switch (mapa[y][x])
             {
-          
+                
                 //Niveles
             case 'E': std::cout << BG << VERDE << "▒" << RESET; break;
             case '&': std::cout << BG << MAGENTA << "<" << RESET; break;
@@ -219,7 +244,13 @@ void dibujarMapa(string mapa[], int filas)
             case 'P': std::cout << BG << LAZUL << "P" << RESET; break;
             case 'X': std::cout << BG << BLANCO << "X" << RESET; break;
             case '.': std::cout << BG_NO << " " << RESET; break;
-            default:  std::cout << BG << mapa[y][x] << RESET;
+            default: 
+                if(mapa==level4)std::cout << BG_LVERDE << mapa[y][x] << RESET;
+                else
+                {
+                    std::cout << BG << mapa[y][x] << RESET;
+                }
+                break;
             }
             
         }

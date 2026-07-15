@@ -6,7 +6,7 @@ void updateDebug() {
 	if (debugKey % 2 == 0) {
 		for (int i = 0; i < 30; i++) {
 			gotoxy(0, i);
-			std::cout << "                    " << RESET;
+			std::cout << "              " << RESET;
 		}
 		gotoxy(0, 7);
 		std::cout << GRIS << "-Global-"<< RESET;
@@ -42,7 +42,7 @@ void updateDebug() {
 	else {
 		for (int i=0; i < 30; i++) {
 			gotoxy(0, i);
-			std::cout << "                    " << RESET;
+			std::cout << "                " << RESET;
 		}
 		
 		

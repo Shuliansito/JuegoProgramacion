@@ -8,6 +8,19 @@ bool inMenu = true;
  int opcion = 0;
 
 using namespace std;
+
+void addNameToCharacter() {
+	cout << MOSTRAR;
+	std::string n;
+	gotoxy(50, 13);
+	cout << "Ingrese su nombre: ";
+	cin >> n;
+	player1.setNombre(n);
+	cout << ESCONDER;
+	LOG_FILE("[NOMBRE] El jugador cambio su nombre a " + player1.getNombre());
+	LOG("[NOMBRE] El jugador cambio su nombre a " + player1.getNombre());
+}
+
 void menuLogic() {
 	//Logica de las opciones
 	if (_kbhit()) {

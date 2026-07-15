@@ -13,6 +13,8 @@ extern int nivelglobal;
 class player
 {
 public:
+    std::string nombre;
+
     int X;
     int Y;
     std::string simbolo;
@@ -37,6 +39,15 @@ public:
         guardiasMatados = gKilled;
 
 
+    }
+    //Ya se que en realidad nombre, x e y deberian estar en privado... pero mi logica ya esta hecha con todo en publico
+    //Esto es una prueba
+    std::string getNombre() {
+        return nombre;
+    }
+    void setNombre(std::string name) {
+        nombre = name;
+        
     }
 
     void recibirDano(int dm);

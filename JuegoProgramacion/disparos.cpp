@@ -42,6 +42,7 @@ void actualizarBalas(std::string mapa[]) {
 
             //Primero detecto si es pared antes de hacer el cambio de posicion [BUG N003 FIXED]
             if (mapa[bullets[i].y][bullets[i].x] == '%') continue;
+            
 
             gotoxy(25 + bullets[i].x, 3 + bullets[i].y);
             std::cout << BG << " " << RESET;
@@ -78,12 +79,15 @@ void actualizarBalas(std::string mapa[]) {
 
                 gotoxy(25 + nx, 3 + ny);
                 std::cout << BG << " " << RESET;
+                LOG_FILE("[GUARDIA] " + player1.getNombre() + " mató a un guardia en " + "X: " + STR(nx) + " Y: " + STR(ny));
+                LOG("[GUARDIA] " + player1.getNombre() + " mató a un guardia en " + "X: " + STR(nx) + " Y: " + STR(ny));
 
                 bullets[i].activa = false;
             }
             else if (tile == '%' || tile == '|' || tile == 'K') {
                 bullets[i].activa = false;
             }
+           
             else {
                 gotoxy(25 + nx, 3 + ny);
                 std::cout << NEGRO << BG << "*" << RESET;

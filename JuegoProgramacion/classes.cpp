@@ -4,11 +4,17 @@
 
 void dibujarJugador(int x, int y, std::string simbolo, const std::string color)
 {
-    gotoxy(25 + x, 3 + y);
-    std::cout << color << BG << BOLD << simbolo<<BG_NO<<RESET;
+    if (player1.nivel == 4) {
+        gotoxy(25 + x, 3 + y);
+        std::cout << color << BG_LVERDE << BOLD << simbolo << BG_NO << RESET;
+    }else{
+        gotoxy(25 + x, 3 + y);
+        std::cout << color << BG << BOLD << simbolo << BG_NO << RESET;
+    }
+    
 }
 
-player player1(1,6,"O",1,NARANJA,false, 0);
+player player1(1,6,"O",4,NARANJA,false, 0);
 
 void player::recibirDano(int dm)
 {

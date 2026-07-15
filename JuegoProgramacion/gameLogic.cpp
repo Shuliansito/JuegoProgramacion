@@ -15,12 +15,12 @@ bool canPass_2 = false;
 bool canPass_3 = false;
 
 char tile;
-char tecla;
+char tecla; 
 char u_tecla=tecla;
 //Nivel 2
 int guardiasNivel2 = 2;
 bool puertaNivel2Abierta = false;
-string* niveles[cantMapas] = { level1, level2, level3 };
+string* niveles[cantMapas] = {level1, level2, level3, level4};
 
 
 int collision(int x, int y, string mapa[])
@@ -31,6 +31,7 @@ int collision(int x, int y, string mapa[])
     else if (mapa[y][x] == 'P') { return 3; }
     else if (mapa[y][x] == 'D') { return 4; }
     else if (mapa[y][x] == '&') { return 5; }
+    //else if (mapa[y][x] == '*') { return 67; }
 
 
 
@@ -52,21 +53,33 @@ void cargarGuardias() {
 
 void actionCollision() {
     int nivelActual = player1.nivel - 1;
+    std::string tipoColision[6] = {"","Pared","Sig Nivel","Guardia","Ant Nivel","Arma"};
 
     int col = collision(player1.X, player1.Y, niveles[nivelActual]);
+
+
+    //Debug colision
+    for (int i = 0; i < 6; i++){
+        if(col!=0&&col==i){
+            LOG_FILE("[COLISION] " + player1.getNombre() + " ha colisionado en " + "X: " + STR(player1.X) + " Y: " + STR(player1.Y) + " (Colision de tipo: "+tipoColision[i] + ")");
+            LOG("[COLISION] " + player1.getNombre() + " ha colisionado en " + "X: " + STR(player1.X) + " Y: " + STR(player1.Y) + " (Colision de tipo: " + tipoColision[i] + ")");
+        }
+    }
 
     if (col == 1)
     {
         player1.X = prevX1;
         player1.Y = prevY1;
+        
     }
     else if (col == 2)
     {
-
+        
         mostrarHistoria();
         player1.nivel++;
-
-        if (player1.nivel > 3)
+        LOG_FILE("[NIVEL] player ha avanzado al nivel: " + STR(player1.nivel));;
+        LOG("[NIVEL] "+ player1.getNombre()+" ha avanzado al nivel: " + STR(player1.nivel));
+        if (player1.nivel > 4)
             player1.nivel = 1;
 
         player1.nivel = player1.nivel;
@@ -86,11 +99,12 @@ void actionCollision() {
             player1.X = 1;
             player1.Y = 1;
         }
-        else if (player1.nivel == 3) {
+        else if (player1.nivel == 3||player1.nivel==4) {
             player1.X = 1;
             player1.Y = 12;
         }
         cargarGuardias();
+
     }
     else if (col == 4) {
         player1.nivel--;
@@ -122,8 +136,9 @@ void actionCollision() {
 
 
     }
-    else if (col == 3) { playing = false; }
+    else if (col == 3) { exit(69); }
     else if (col == 5) { canPass_1 = true; player1.canShootWeapong = true; }
+    
 
     if (!puertaNivel2Abierta &&
         player1.nivel == 2 &&
@@ -147,6 +162,9 @@ void actionCollision() {
         dibujarMapa(niveles[0], 20);
         canPass_1 = false;
     }
+
+    
+    
     
     
 
@@ -174,9 +192,18 @@ void inputMovement()
 
     if (_kbhit())
     {
-        
-        gotoxy(25 + player1.X, 3 + player1.Y);
-        cout << BG << " ";
+        if(player1.nivel!=4){
+            gotoxy(25 + player1.X, 3 + player1.Y);
+            cout << BG << " ";
+            gotoxy(40, 0);
+            
+        }
+        else if (player1.nivel == 4) {
+            gotoxy(25 + player1.X, 3 + player1.Y);
+            cout << BG_LVERDE << " ";
+            gotoxy(40, 0);
+            
+        }
 
 
 

@@ -30,7 +30,7 @@ extern char tile;
 extern char tecla;
 extern char u_tecla;
 
-extern string* niveles[3];
+extern string* niveles[cantMapas];
 
 int collision(int x, int y, string mapa[]);
 
