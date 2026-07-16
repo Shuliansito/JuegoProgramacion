@@ -226,7 +226,9 @@ void inputMovement()
     
     }
 
-    
+    if (player1.nivel >= 5) {
+        player1.canShootWeapong = false;
+    }
     if (_kbhit())
     {
         

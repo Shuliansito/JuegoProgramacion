@@ -58,11 +58,11 @@ int main()
         std::cout << BG_NO;
         
         
-        if (player1.nivel == 6 && player1.X >= 48) {
+        if (player1.nivel == 6 && player1.X >= 47) {
 
             playing = false;
             player1.gano = true;
-            Beep(100, 20);
+            
         }
         inputMovement();
        
