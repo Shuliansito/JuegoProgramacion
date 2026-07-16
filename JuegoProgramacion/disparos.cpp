@@ -45,6 +45,7 @@ void actualizarBalas(std::string mapa[]) {
             //Primero detecto si es pared antes de hacer el cambio de posicion [BUG N003 FIXED]
             if (mapa[bullets[i].y][bullets[i].x] == '%') continue;
             
+            
 
             if (player1.nivel != 4) {
                 gotoxy(25 + bullets[i].x, 3 + bullets[i].y);
@@ -86,15 +87,23 @@ void actualizarBalas(std::string mapa[]) {
                 //Logica para matar al guardia
                 
                 player1.guardiasMatados++;
-
-                gotoxy(25 + nuevax, 3 + nuevay);
-                std::cout << BG << " " << RESET;
+                if (player1.nivel == 4) {
+                   
+                    gotoxy(25 + nuevax, 3 + nuevay);
+                    std::cout << BG_LVERDE << " " << RESET;
+                }
+                else {
+                    
+                    gotoxy(25 + nuevax, 3 + nuevay);
+                    std::cout << BG << " " << RESET;
+                }
+                
                 LOG_FILE("[GUARDIA] " + player1.getNombre() + " mató a un guardia en " + "X: " + STR(nuevax) + " Y: " + STR(nuevay));
                 LOG("[GUARDIA] " + player1.getNombre() + " mató a un guardia en " + "X: " + STR(nuevax) + " Y: " + STR(nuevay));
 
                 bullets[i].activa = false;
             }
-            else if (tile == '%' || tile == '|' || tile == 'K') {
+            else if (tile == '%' || tile == '|' || tile == 'K' || tile == 'E' || tile == 'D') {
                 bullets[i].activa = false;
             }
            

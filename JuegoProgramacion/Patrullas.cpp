@@ -26,9 +26,17 @@ bool esPisable(char c) {
 //  Costo mucho hacer que esto funcione, odio los punteros  //
 //----------------------------------------------------------//
 void Guardia_Mover(Guardia& g, std::string mapa[]) {
-    mapa[g.y][g.x] = ' ';
-    gotoxy(25 + g.x, 3 + g.y);
-    std::cout << BG << " " << RESET;
+    if (player1.nivel == 4) {
+        mapa[g.y][g.x] = ' ';
+        gotoxy(25 + g.x, 3 + g.y);
+        std::cout << BG_LVERDE << " " << RESET;
+    }
+    else {
+        mapa[g.y][g.x] = ' ';
+            gotoxy(25 + g.x, 3 + g.y);
+            std::cout << BG << " " << RESET;
+    }
+    
     
     //Opciones disponibles de movimiento en X y Y
     int direccionx[4] = { 1, -1, 0,  0 };
@@ -56,27 +64,34 @@ void Guardia_Mover(Guardia& g, std::string mapa[]) {
         g.y += direcciony[choice];
     }
 
-    
-
     mapa[g.y][g.x] = 'P';
-    gotoxy(25 + g.x, 3 + g.y);
-    std::cout << BG << AZUL << "P" << RESET;
+    if (player1.nivel == 4) {
+
+        gotoxy(25 + g.x, 3 + g.y);
+        std::cout << BG_LVERDE << AZUL << "P" << RESET;
+    }
+    else {
+
+        gotoxy(25 + g.x, 3 + g.y);
+        std::cout << BG << AZUL << "P" << RESET;
+    }
+    
 }
 //----------------------------------------------------------------------------------//
 //  No creo que sea la mejor forma de implementar los mapas en esto pero funciona   //
 //----------------------------------------------------------------------------------//
 
-void Guardia_Update(std::string nivel1[], std::string nivel2[], std::string nivel3[], int tickActual) {
+void Guardia_Update(std::string nivel1[], std::string nivel2[], std::string nivel4[], int tickActual) {
     if (tickActual % 10 != 0) return;
    
     for (int i = 0; i < cantGuardias; i++) {
        
-        Guardia& g = guardia[i];// Paso por referencia porque sino no se modifica la ubicacion.
+        Guardia& g = guardia[i];// Paso por referencia porque sino no se modifica la ubicacion original, sino la de una copia.
         if (!g.vivo) continue;
         if (g.nivelGuardia != player1.nivel) continue;
         if (g.nivelGuardia == 1) Guardia_Mover(g, nivel1);
         else if (g.nivelGuardia == 2) Guardia_Mover(g, nivel2);
-        else if (g.nivelGuardia == 3) Guardia_Mover(g, nivel3);
+        else if (g.nivelGuardia == 4) Guardia_Mover(g, nivel4);
     }
 }
 

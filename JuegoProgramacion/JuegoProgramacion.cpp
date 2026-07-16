@@ -61,7 +61,7 @@ int main()
 
         if (debeEjecutarTick())
         {
-            Guardia_Update(level1, level2, level3, tick);
+            Guardia_Update(level1, level2, level4, tick);
             actualizarBalas(niveles[player1.nivel - 1]);
             playerHelps();
             if (shootDelay > 0) { shootDelay--; }

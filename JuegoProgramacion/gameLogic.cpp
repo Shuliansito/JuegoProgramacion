@@ -41,13 +41,20 @@ int collision(int x, int y, string mapa[])
 //Spawn Guardias
 
 void cargarGuardias() {
-    /*if (player1.nivel == 1) {
+    if (player1.nivel == 1) {
         Guardia_Ini(30, 15, 1);
         
-    }*/
+    }
     if (player1.nivel == 2&&player1.guardiasMatados!=2) {
         Guardia_Ini(5, 8, 2);//Guardia 1 nivel 2
         Guardia_Ini(7, 14, 2);//Guardia 2 nivel 2
+    }
+
+    if (player1.nivel == 4) {
+        gotoxy(30, 0);
+        cout << "PRUEBA";
+        Guardia_Ini(5, 6, 4);//Guardia 1 nivel 4
+        Guardia_Ini(7, 4, 4);//Guardia 2 nivel 4
     }
 }
 
@@ -142,7 +149,7 @@ void actionCollision() {
 
     if (!puertaNivel2Abierta &&
         player1.nivel == 2 &&
-        player1.guardiasMatados==2)
+        player1.guardiasMatados>=2)
     {
         puertaNivel2Abierta = true;
 
