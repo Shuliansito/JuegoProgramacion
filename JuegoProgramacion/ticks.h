@@ -5,7 +5,7 @@
 
 extern double tickTime;
 extern double accumulator;
-
+extern int tick;
 extern std::chrono::steady_clock::time_point lastTime;
 
 void iniciarTicks(double TPS);

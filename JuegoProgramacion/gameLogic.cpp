@@ -20,17 +20,18 @@ char u_tecla=tecla;
 //Nivel 2
 int guardiasNivel2 = 2;
 bool puertaNivel2Abierta = false;
-string* niveles[cantMapas] = {level1, level2, level3, level4};
+string* niveles[cantMapas] = {level1, level2, level3, level4,level5,finallevel};
 
 
 int collision(int x, int y, string mapa[])
 {
     if (mapa[y][x] == ' ') { return 0; }
-    else if (mapa[y][x] == '%' || mapa[y][x] == '|' || mapa[y][x] == 'K') { return 1; }
+    else if (mapa[y][x] == '%' || mapa[y][x] == '|' || mapa[y][x] == 'K'||mapa[y][x]=='-'||mapa[y][x]=='N') { return 1; }
     else if (mapa[y][x] == 'E') { return 2; }
     else if (mapa[y][x] == 'P') { return 3; }
     else if (mapa[y][x] == 'D') { return 4; }
     else if (mapa[y][x] == '&') { return 5; }
+    else if (mapa[y][x] == 'Y') { return 6; }
     //else if (mapa[y][x] == '*') { return 67; }
 
 
@@ -41,20 +42,21 @@ int collision(int x, int y, string mapa[])
 //Spawn Guardias
 
 void cargarGuardias() {
-    if (player1.nivel == 1) {
-        Guardia_Ini(30, 15, 1);
-        
-    }
+    //X Y NIVEL
+    
     if (player1.nivel == 2&&player1.guardiasMatados!=2) {
         Guardia_Ini(5, 8, 2);//Guardia 1 nivel 2
         Guardia_Ini(7, 14, 2);//Guardia 2 nivel 2
     }
 
-    if (player1.nivel == 4) {
-        gotoxy(30, 0);
-        cout << "PRUEBA";
-        Guardia_Ini(5, 6, 4);//Guardia 1 nivel 4
-        Guardia_Ini(7, 4, 4);//Guardia 2 nivel 4
+    if (player1.nivel == 4&&player1.canOpenSewerage==false) {
+        
+        
+        Guardia_Ini(33, 3, 4);//Guardia 1 nivel 4
+        Guardia_Ini(35, 14, 4);//Guardia 2 nivel 4
+
+        Guardia_Ini(58, 2, 4);//Guardia 3 nivel 4
+        Guardia_Ini(59, 12, 4);//Guardia 4 nivel 4
     }
 }
 
@@ -86,8 +88,7 @@ void actionCollision() {
         player1.nivel++;
         LOG_FILE("[NIVEL] player ha avanzado al nivel: " + STR(player1.nivel));;
         LOG("[NIVEL] "+ player1.getNombre()+" ha avanzado al nivel: " + STR(player1.nivel));
-        if (player1.nivel > 4)
-            player1.nivel = 1;
+        
 
         player1.nivel = player1.nivel;
         // Borrar las balas al cambiar de nivel, esto hace que no se queden
@@ -109,6 +110,14 @@ void actionCollision() {
         else if (player1.nivel == 3||player1.nivel==4) {
             player1.X = 1;
             player1.Y = 12;
+        }
+        else if (player1.nivel == 5) {
+            player1.X = 30;
+            player1.Y = 1;
+        }
+        else if (player1.nivel == 6) {
+            player1.X = 1;
+            player1.Y = 14;
         }
         cargarGuardias();
 
@@ -145,11 +154,10 @@ void actionCollision() {
     }
     else if (col == 3) { exit(69); }
     else if (col == 5) { canPass_1 = true; player1.canShootWeapong = true; }
+    else if (col == 6) { player1.canOpenSewerage=true; }
     
 
-    if (!puertaNivel2Abierta &&
-        player1.nivel == 2 &&
-        player1.guardiasMatados>=2)
+    if (!puertaNivel2Abierta &&player1.nivel == 2 &&player1.guardiasMatados>=2)
     {
         puertaNivel2Abierta = true;
 
@@ -168,6 +176,16 @@ void actionCollision() {
         level1[8][52] = ' ';
         dibujarMapa(niveles[0], 20);
         canPass_1 = false;
+    }
+
+    if (player1.canOpenSewerage == true && level4[16][30] == 'K') {
+        for (int i = 0; i < 2; i++) {
+            level4[16][30+i] = 'E';
+            level4[11+i][0] = 'D';
+            
+        }
+
+        dibujarMapa(niveles[3], 20);
     }
 
     
@@ -195,21 +213,36 @@ void inputMovement()
     case 3:
         tile = level3[player1.Y][player1.X];
         break;
+    case 4:
+        tile = level4[player1.Y][player1.X];
+        break;
+    case 5:
+        tile = level5[player1.Y][player1.X];
+        break;
+    case 6:
+        //tile = level6[player1.Y][player1.X];
+        break;
+
+    
     }
 
+    
     if (_kbhit())
     {
-        if (player1.nivel != 4) {
+        
+        if (player1.nivel == 5) {
             gotoxy(25 + player1.X, 3 + player1.Y);
-            cout << BG << " ";
-            gotoxy(40, 0);
-
+            cout << BG_GRIS << " ";
         }
-        else if (player1.nivel == 4) {
+        else if (player1.nivel == 4||player1.nivel==6) {
             gotoxy(25 + player1.X, 3 + player1.Y);
             cout << BG_LVERDE << " ";
-            gotoxy(40, 0);
+            
 
+        }
+        else {
+            gotoxy(25 + player1.X, 3 + player1.Y);
+            cout << BG << " ";
         }
 
 

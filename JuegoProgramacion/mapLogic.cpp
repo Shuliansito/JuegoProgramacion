@@ -157,31 +157,98 @@ string level3[20] = {
 };
 string level4[20] = {
     "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",
-    "%                        %%%                                                %%%    Y    %",
-    "%                        %%%                                                %%%         %",
-    "%                        %%%                                                %%%         %",
-    "%                        %%%                                                %%%%%    %%%%",
+    "%                        %%%                         %%%                    %%%   Y     %",
+    "%                        %%%                         %%%                    %%%         %",
+    "%                        %%%                         %%%                    %%%         %",
+    "%                        %%%%%%%%%                   %%%                    %%%%%-  -%%%%",
     "%                                                                                       %",
     "%                                                                                       %",
     "%                                                                                       %",
     "%                                                                                       %",
     "%                                                                                       %",
     "%                                                                                       %",
-    "D                                                                                       %",
-    "D                        %%%%%%%%%                                                      %",
-    "%                        %%%                                                            %",
-    "%                        %%%                                                            %",
-    "%                        %%%                                                            %",
-    "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",
+    "K                                                                                       %",
+    "K                        %%%%%%%%%                   %%%                                %",
+    "%                        %%%                         %%%                                %",
+    "%                        %%%                         %%%                                %",
+    "%                        %%%                         %%%                                %",
+    "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%KK%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",
     ".........................................................................................",
     ".........................................................................................",
     "........................................................................................."
 };
+string level5[20] = {
+    "                           %%KK%%             %%NN%%                                     ",
+    "                           %....%             %....%                                     ",
+    "                           %....%    %%%%%%%%%%....%                                     ",
+    "                           %....%    %.............%                                     ",
+    "                           %....%    %.............%                                     ",
+    "      %%%%%%%%%%%%%%%%%%%% %....%    %....%%%%%%%%%%                                     ",
+    "      N..................% %....%    %....%            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",
+    "      N..................% %....%%%%%%....%            %................................E",
+    "      %%%%%%%%%%%%%%%....%%%..............%%%%%%%%%%%%%%................................E",
+    "                    %.......................................%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",
+    "                    %.......................................%                            ",
+    "                    %....%%%%%%%%%%%%%%%%%%%%%....%%%%%%%%%%%                            ",
+    "                    %....%                   %....%                                      ",
+    "                    %....%                   %....%%%%%%%                                ",
+    "                    %....%                   %..........N                                ",
+    "                    %%NN%%                   %..........N                                ",
+    "                                             %%%%%%%%%%%%                                ",
+    "                                                                                         ",
+    "                                                                                         ",
+    "                                                                                         "
+};
+string finallevel[20] = {
+    "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",
+    "X...............................................=============++=========%",
+    "X...............................................=============++=========%",
+    "X...............................................========================%",
+    "X...............................................========================%",
+    "X...............................................========================%",
+    "X...............................................========================%",
+    "X...............................................=============++=========%",
+    "X...............................................=============++=========%",
+    "X...............................................=============++=========%",
+    "X...............................................=============++=========%",
+    "X...............................................========================%",
+    "X...............................................========================%",
+    "X...............................................========================%",
+    "X...............................................========================%",
+    "X...............................................=============++=========%",
+    "X...............................................=============++=========%",
+    "X...............................................=============++=========%",
+    "X...............................................=============++=========%",
+    "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+};
+string carta[20] = {
+    "-----------------------------------------------------------------",
+    "-----------------------------------------------------------------",
+    "-----------------------------------------------------------------",
+    "------------------15555555555555555555555555552------------------",
+    "------------------6-De Adrius:----------------6------------------",
+    "------------------6---------------------------6------------------",
+    "------------------6-Escuche que escapaste...--6------------------",
+    "------------------6-encontremonos donde-------6------------------",
+    "------------------6-siempre...----------------6------------------",
+    "------------------6---------------------------6------------------",
+    "------------------6-We are back in the game---6------------------",
+    "------------------6-amigo---------------------6------------------",
+    "------------------6---------------------------6------------------",
+    "------------------6---------------------------6------------------",
+    "------------------6---------------------------6------------------",
+    "------------------6---------------------------6------------------",
+    "------------------45555555555555555555555555553------------------",
+    "-----------------------------------------------------------------",
+    "-----------------------------------------------------------------",
+    "-----------------------------------------------------------------"
+};
 
-string misiones[3] = {
+string misiones[4] = {
     "Agarrá el ",
     "Mata a los ",
-	"Escapa de la prisión",
+	"Escapa de la carcel",
+    "Agarrá la "
 };
 
 
@@ -223,6 +290,35 @@ void dibujarMapa(string mapa[], int filas)
         return;
     }
     system("cls");
+    if (player1.nivel == 5) {
+        for (int y = 0; y < filas; y++)
+        {
+            gotoxy(25, 3 + y);
+
+
+            for (int x = 0; x < mapa[y].size(); x++)
+            {
+
+                switch (mapa[y][x])
+                {
+
+                    //Niveles
+                case 'E': std::cout << BG_GRIS << VERDE << "▒" << RESET; break;
+                case 'N': std::cout << BG_GRIS << LVERDE << "▒" << RESET; break;
+                case 'K': std::cout << BG_ROJO << "▒" << RESET; break;
+                case '%': std::cout << BG_GRIS << PARED << "▓" << RESET; break;
+                case 'D': std::cout << BG_GRIS << VERDE << "▒" << RESET; break;
+                case 'X': std::cout << BG_GRIS << BLANCO << "X" << RESET; break;
+                case '.': std::cout << BG_GRIS << " " << RESET; break;
+                case 'Y':std::cout << BG_LVERDE << BOLD << GRIS << mapa[y][x] << RESET; break;
+                default:std::cout << BG_NO << mapa[y][x] << RESET;break;
+                }
+
+            }
+
+        }
+        return;
+    }
     for (int y = 0; y < filas; y++)
     {
         gotoxy(25, 3 + y);
@@ -235,18 +331,24 @@ void dibujarMapa(string mapa[], int filas)
             {
                 
                 //Niveles
+            case '=': std::cout << BG_BLANCO << " " << RESET; break;
+            case '+': std::cout << BG_NEGRO << " " << RESET; break;
             case 'E': std::cout << BG << VERDE << "▒" << RESET; break;
             case '&': std::cout << BG << MAGENTA << "<" << RESET; break;
             case 'K': std::cout << BG_ROJO << "▒" << RESET; break;
-            case '%': std::cout << BG << PARED << "▓" << RESET; break;
+            case '%':if (mapa == finallevel)std::cout << BG_NO << " "<<RESET;else std::cout << BG << PARED << "▓" << RESET; break;
             case '$': std::cout << BG << "▓" << RESET; break;
             case 'D': std::cout << BG << VERDE << "▒" << RESET; break;
             case 'P': std::cout << BG << LAZUL << "P" << RESET; break;
-            case 'X': std::cout << BG << BLANCO << "X" << RESET; break;
-            case '.': std::cout << BG_NO << " " << RESET; break;
+            case 'X':if (mapa == finallevel)std::cout << BG << PARED << "▓" << RESET; else std::cout << BG << BLANCO << "X" << RESET; break;
+            case '.':if (mapa == finallevel)std::cout << BG_LVERDE << " "<<RESET; else std::cout << BG_NO << " " << RESET; break;
             case 'Y':std::cout << BG_LVERDE <<BOLD<<GRIS<< mapa[y][x] << RESET; break;
             default: 
                 if(mapa==level4)std::cout << BG_LVERDE << mapa[y][x] << RESET;
+                else if(mapa==finallevel)
+                {
+                    std::cout << BG_NO<< mapa[y][x] << RESET;
+                }
                 else
                 {
                     std::cout << BG << mapa[y][x] << RESET;
@@ -256,6 +358,12 @@ void dibujarMapa(string mapa[], int filas)
             
         }
         
+    }
+    
+    if (player1.nivel == 6) {
+        gotoxy(74, 9); std::cout <<BG_BLANCO<< NEGRO << "  _[]_  " << RESET;
+        gotoxy(74, 10); std::cout <<BG_BLANCO<< NEGRO << " /____\\ " << RESET;
+        gotoxy(74, 11); std::cout <<BG_BLANCO<< NEGRO << " o    o " << RESET;
     }
     gotoxy(0, 0);
     std::cout << "\033[0m";
@@ -298,7 +406,8 @@ void dibujarSubNivel(string submapa[], int filas) {
 
 
     gotoxy(44, 20);
-    std::cout << BG_NO << BLANCO << "Pulsar " << NARANJA << "ENTER" << BLANCO << " para continuar";
+    std::cout << BG_NO << BLANCO << "Pulsar " << NARANJA << "ENTER" << BLANCO << (player1.nivel==6?" para salir":" para continuar");
+    while (_getch() != '\r');
     
 }
    
@@ -316,19 +425,34 @@ void playerHelps() {
         gotoxy(39, 23);
         std::cout << GRIS << misiones[1] << AZUL << "GUARDIAS" << RESET;
     }
-    else if(player1.nivel == 0) {
-        gotoxy(0, 20);
-        std::cout << "                                                                     " << RESET;
+    else if(player1.nivel == 3) {
+        gotoxy(37, 17);
+        std::cout << GRIS << misiones[2]<< RESET;
 	}
-    else {
-        gotoxy(0, 20);
-        std::cout << GRIS << "                                                            " << RESET;
+    else if (player1.nivel == 4) {
+        gotoxy(45, 20);
+        std::cout << GRIS << misiones[3] << BLANCO << "PALANCA" << GRIS << " para abrir el" << (player1.canOpenSewerage == false ? ROJO : VERDE) << " ALCANTARILLADO" << RESET;
     }
+    else if (player1.nivel == 5) {
+        gotoxy(56,15);
+        std::cout << ROJO << "Vida: " << player1.vida << (player1.vida == 100?" ": "%") << RESET;
+        gotoxy(56, 20);
+        std::cout << GRIS << misiones[2] << RESET;
+        if (player1.vida < 10) {
+            gotoxy(63, 15);
+            std::cout << ROJO << "% "<<RESET;
+        }
+    }
+    else if (player1.nivel == 6) {
+        gotoxy(50, 22);
+        std::cout << GRIS << misiones[2] << RESET;
+    }
+    
 }
 
 void mostrarHistoria() {
-    if (player1.nivel == 1 &&player1.historia1Leida == false) {dibujarSubNivel(level1_1, 20);player1.historia1Leida = true; while (_getch() != '\r');}
-    if (player1.nivel == 2 && player1.historia2Leida == false) {dibujarSubNivel(level2_1, 20);player1.historia2Leida = true; while (_getch() != '\r');}
+    if (player1.nivel == 1 &&player1.historia1Leida == false) {dibujarSubNivel(level1_1, 20);player1.historia1Leida = true; }
+    if (player1.nivel == 2 && player1.historia2Leida == false) {dibujarSubNivel(level2_1, 20);player1.historia2Leida = true;}
 
     
     

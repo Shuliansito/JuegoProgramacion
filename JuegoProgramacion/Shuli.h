@@ -7,10 +7,10 @@
 #include <fstream> 
 
 //Defines para el LOG 
-#ifdef _DEBUG
+
 #define LOG(msg)              OutputDebugStringA((std::string(msg) + "\n").c_str())
 #define STR(x)                std::to_string(x)
-#endif
+
 
 const std::string ESCONDER = "\033[?25l";
 const std::string MOSTRAR = "\033[?25h";
@@ -21,6 +21,7 @@ const std::string PARED = "\033[38;2;160;125;110m";
 const std::string NEGRO = "\033[30m";
 const std::string ROJO = "\033[31m";
 const std::string VERDE = "\033[32m";
+const std::string VERDE2 = "\033[38;2;0;180;0m";
 const std::string AMARILLO = "\033[33m";
 const std::string AZUL = "\033[34m";
 const std::string MAGENTA = "\033[35m";
@@ -34,6 +35,7 @@ const std::string GRIS = "\033[38;2;176;174;174m";
 
 //    COLORES FONDO  //
 const std::string BG_NEGRO = "\x1B[40m";
+const std::string BG_GRIS = "\x1B[48;2;40;25;15m";
 const std::string BG_ROJO = "\x1B[41m";
 const std::string BG_VERDE = "\x1B[42m";
 const std::string BG_AMARILLO = "\x1B[43m";

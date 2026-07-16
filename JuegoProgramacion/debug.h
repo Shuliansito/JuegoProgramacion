@@ -7,6 +7,6 @@
 
 extern int guardiasNivel2;
 extern char u_tecla;
-extern int tick;
+
 extern int debugKey;
 void updateDebug();

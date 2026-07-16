@@ -19,6 +19,7 @@
 #include "disparos.h"
 #include "classes.h"
 #include "ticks.h"
+#include "Cloaca.h"
 
 
 
@@ -35,7 +36,6 @@ int main()
     
     addNameToCharacter();
     
-
     dibujarMapa(level0, 20);
 
 
@@ -52,15 +52,25 @@ int main()
     iniciarTicks(20);
     std::cout << RESET;
     cargarGuardias();
-    while (playing)
+
+    while (playing&&player1.vida>=1)
     {
         std::cout << BG_NO;
+        
+        
+        if (player1.nivel == 6 && player1.X >= 48) {
+
+            playing = false;
+            player1.gano = true;
+            Beep(100, 20);
+        }
         inputMovement();
        
         dibujarJugador(player1.X, player1.Y, player1.simbolo, player1.color);
 
         if (debeEjecutarTick())
         {
+            cloacaLogic();
             Guardia_Update(level1, level2, level4, tick);
             actualizarBalas(niveles[player1.nivel - 1]);
             playerHelps();
@@ -72,8 +82,14 @@ int main()
        
         updateDebug();
         esperarTick();
+        
         if (shootDelay < 0) {shootDelay = 0;}
     }
+    if (player1.gano) {
+
+        dibujarSubNivel(carta, 20);
+    }
+    
 
 
     Sleep(1500);

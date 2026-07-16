@@ -126,6 +126,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="classes.cpp" />
+    <ClCompile Include="Cloaca.cpp" />
     <ClCompile Include="debug.cpp" />
     <ClCompile Include="disparos.cpp" />
     <ClCompile Include="gameLogic.cpp" />
@@ -138,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="classes.h" />
+    <ClInclude Include="Cloaca.h" />
     <ClInclude Include="debug.h" />
     <ClInclude Include="disparos.h" />
     <ClInclude Include="gameLogic.h" />

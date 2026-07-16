@@ -23,9 +23,13 @@ public:
     int vida;
     bool canShootWeapong;
     int guardiasMatados;
+    bool canOpenSewerage=false;
+    bool gano = false;
 
     bool historia1Leida = false;
     bool historia2Leida = false;
+
+   
 
     player(int x, int y, std::string s, int n, std::string c, bool canUWeapon, int gKilled)
     {
@@ -37,6 +41,8 @@ public:
         canShootWeapong = canUWeapon;
         vida = 100;
         guardiasMatados = gKilled;
+
+        
 
 
     }
