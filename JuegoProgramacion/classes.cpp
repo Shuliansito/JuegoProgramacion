@@ -14,7 +14,7 @@ void dibujarJugador(int x, int y, std::string simbolo, const std::string color)
     
 }
 
-player player1(1,6,"O",4,NARANJA,false, 0);
+player player1(1,6,"O",4,NARANJA,true, 2);// X Y SIMBOLO NIVEL COLOR DISPARAR GUARDIAS
 
 void player::recibirDano(int dm)
 {

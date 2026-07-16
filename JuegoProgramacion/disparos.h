@@ -14,8 +14,8 @@ class Bullet {
 public:
     int x;
     int y;
-    int dx;
-    int dy;
+    int direccionx;
+    int direcciony;
     bool activa;
 };
 

@@ -192,17 +192,17 @@ void inputMovement()
 
     if (_kbhit())
     {
-        if(player1.nivel!=4){
+        if (player1.nivel != 4) {
             gotoxy(25 + player1.X, 3 + player1.Y);
             cout << BG << " ";
             gotoxy(40, 0);
-            
+
         }
         else if (player1.nivel == 4) {
             gotoxy(25 + player1.X, 3 + player1.Y);
             cout << BG_LVERDE << " ";
             gotoxy(40, 0);
-            
+
         }
 
 

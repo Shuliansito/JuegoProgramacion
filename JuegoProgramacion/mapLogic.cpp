@@ -157,12 +157,12 @@ string level3[20] = {
 };
 string level4[20] = {
     "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",
-    "%                                                                                       %",
-    "%                                                                                       %",
-    "%                                                                                       %",
-    "%                                                                                       %",
-    "%                                                                                       %",
-    "%                                                                                       %",
+    "%                        %%%                                                %%%    Y    %",
+    "%                        %%%                                                %%%         %",
+    "%                        %%%                                                            %",
+    "%                        %%%                                                          %%%",
+    "%                                                                                     %%%",
+    "%                                                                                     %%%",
     "%                                                                                       %",
     "%                                                                                       %",
     "%                                                                                       %",
@@ -194,12 +194,12 @@ int chooseMap() {
 void dibujarMapa(string mapa[], int filas)
 {
     
-    cout << "\033[0m";
-    cout << BG_NO;
+    std::cout << "\033[0m";
+    std::cout << BG_NO;
    
     
     
-    cout << BG_NO;
+    std::cout << BG_NO;
     if (mapa == level0||mapa==controles) {
         for (int y = 0; y < filas; y++)
         {
@@ -244,6 +244,7 @@ void dibujarMapa(string mapa[], int filas)
             case 'P': std::cout << BG << LAZUL << "P" << RESET; break;
             case 'X': std::cout << BG << BLANCO << "X" << RESET; break;
             case '.': std::cout << BG_NO << " " << RESET; break;
+            case 'Y':std::cout << BG_LVERDE <<BOLD<<GRIS<< mapa[y][x] << RESET; break;
             default: 
                 if(mapa==level4)std::cout << BG_LVERDE << mapa[y][x] << RESET;
                 else
@@ -257,17 +258,17 @@ void dibujarMapa(string mapa[], int filas)
         
     }
     gotoxy(0, 0);
-    cout << "\033[0m";
-    cout << BG_NO;
+    std::cout << "\033[0m";
+    std::cout << BG_NO;
 }
 
 void dibujarSubNivel(string submapa[], int filas) {
     
-    cout << "\033[0m";
-    cout << BG_NO;
+    std::cout << "\033[0m";
+    std::cout << BG_NO;
     
 
-    cout << BG_NO;
+    std::cout << BG_NO;
     system("cls");
     for (int y = 0; y < filas; y++)
     {
@@ -309,19 +310,19 @@ void playerHelps() {
 
     if(player1.nivel == 1) {
         gotoxy(40, 23);
-        cout << GRIS << misiones[0] << MAGENTA << "RIFLE" << GRIS << " para abrir la puerta" << RESET;
+        std::cout << GRIS << misiones[0] << MAGENTA << "RIFLE" << GRIS << " para abrir la puerta" << RESET;
     }
     else if(player1.nivel == 2) {
         gotoxy(39, 23);
-        cout << GRIS << misiones[1] << AZUL << "GUARDIAS" << RESET;
+        std::cout << GRIS << misiones[1] << AZUL << "GUARDIAS" << RESET;
     }
     else if(player1.nivel == 0) {
         gotoxy(0, 20);
-        cout << "                                                                     " << RESET;
+        std::cout << "                                                                     " << RESET;
 	}
     else {
         gotoxy(0, 20);
-        cout << GRIS << "                                                            " << RESET;
+        std::cout << GRIS << "                                                            " << RESET;
     }
 }
 

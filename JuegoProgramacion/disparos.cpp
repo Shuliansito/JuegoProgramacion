@@ -8,14 +8,16 @@ void dispararBala(int x, int y, int dx, int dy) {
     
     shootDelay = 5;
     
-    if (player1.canShootWeapong){
+    //Crear bala en el array
+    if (player1.canShootWeapong)//Crear bala
+    {
         Beep(1000, 10);
         for (int i = 0; i < MAX_BULLETS; i++) {
             if (!bullets[i].activa) {
                 bullets[i].x = x;
                 bullets[i].y = y;
-                bullets[i].dx = dx;
-                bullets[i].dy = dy;
+                bullets[i].direccionx = dx;
+                bullets[i].direcciony = dy;
                 bullets[i].activa = true;
                 LOG_FILE(std::string("[DISPARO] Nueva bala en ") + std::string("X: ") + STR(bullets[i].x) + std::string(" Y: ") + STR(bullets[i].y));
                 LOG(std::string("[DISPARO] Nueva bala en ") + std::string("X: ") + STR(bullets[i].x) + std::string(" Y: ") + STR(bullets[i].y));//Aviso de nueva bala en debug
@@ -36,7 +38,7 @@ void actualizarBalas(std::string mapa[]) {
         for (int i = 0; i < MAX_BULLETS; i++) {
             if (!bullets[i].activa) continue;
 
-            if (bullets[i].y < 0 || bullets[i].y >= 20 || bullets[i].x < 0 || bullets[i].x >= (int)mapa[bullets[i].y].size()) {
+            if (bullets[i].y < 0 || bullets[i].y >= 20 || bullets[i].x < 0 || bullets[i].x >= mapa[bullets[i].y].size()) {
                 bullets[i].activa = false; continue;
             }
 
@@ -44,26 +46,34 @@ void actualizarBalas(std::string mapa[]) {
             if (mapa[bullets[i].y][bullets[i].x] == '%') continue;
             
 
-            gotoxy(25 + bullets[i].x, 3 + bullets[i].y);
-            std::cout << BG << " " << RESET;
+            if (player1.nivel != 4) {
+                gotoxy(25 + bullets[i].x, 3 + bullets[i].y);
+                cout << BG << " "<<RESET;
 
-            bullets[i].x += bullets[i].dx;
-            bullets[i].y += bullets[i].dy;
+            }
+            else if (player1.nivel == 4) {
+                gotoxy(25 + bullets[i].x, 3 + bullets[i].y);
+                cout << BG_LVERDE << " "<<RESET;
 
-            int nx = bullets[i].x;
-            int ny = bullets[i].y;
+            }
+
+            bullets[i].x += bullets[i].direccionx;
+            bullets[i].y += bullets[i].direcciony;
+
+            int nuevax = bullets[i].x;
+            int nuevay = bullets[i].y;
 
 
 
-            if (ny < 0 || ny >= 20 || nx < 0 || nx >= (int)mapa[ny].size()) {
+            if (nuevay < 0 || nuevay >= 20 || nuevax < 0 || nuevax >=mapa[nuevay].size()) {
                 bullets[i].activa = false;
                 continue;
             }
 
-            char tile = mapa[ny][nx];
+            char tile = mapa[nuevay][nuevax];
 
             if (tile == 'P') {
-                mapa[ny][nx] = ' ';
+                mapa[nuevay][nuevax] = ' ';
                 for (int j = 0; j < cantGuardias; j++) {
                     if (guardia[j].x == bullets[i].x && guardia[j].y == bullets[i].y) {
                         guardia[j].vivo = false;
@@ -77,10 +87,10 @@ void actualizarBalas(std::string mapa[]) {
                 
                 player1.guardiasMatados++;
 
-                gotoxy(25 + nx, 3 + ny);
+                gotoxy(25 + nuevax, 3 + nuevay);
                 std::cout << BG << " " << RESET;
-                LOG_FILE("[GUARDIA] " + player1.getNombre() + " mató a un guardia en " + "X: " + STR(nx) + " Y: " + STR(ny));
-                LOG("[GUARDIA] " + player1.getNombre() + " mató a un guardia en " + "X: " + STR(nx) + " Y: " + STR(ny));
+                LOG_FILE("[GUARDIA] " + player1.getNombre() + " mató a un guardia en " + "X: " + STR(nuevax) + " Y: " + STR(nuevay));
+                LOG("[GUARDIA] " + player1.getNombre() + " mató a un guardia en " + "X: " + STR(nuevax) + " Y: " + STR(nuevay));
 
                 bullets[i].activa = false;
             }
@@ -89,8 +99,14 @@ void actualizarBalas(std::string mapa[]) {
             }
            
             else {
-                gotoxy(25 + nx, 3 + ny);
-                std::cout << NEGRO << BG << "*" << RESET;
+                if (player1.nivel != 4) {
+                    gotoxy(25 + nuevax, 3 + nuevay);
+                    cout << BG <<NEGRO<< "*"<<RESET;
+                }
+                else if (player1.nivel == 4) {
+                    gotoxy(25 + nuevax, 3 + nuevay);
+                    cout << BG_LVERDE << NEGRO << "*"<<RESET;
+                }
             }
         }
     }
