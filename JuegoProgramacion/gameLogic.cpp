@@ -33,9 +33,6 @@ int collision(int x, int y, string mapa[])
     else if (mapa[y][x] == '&') { return 5; }
     else if (mapa[y][x] == 'Y') { return 6; }
     //else if (mapa[y][x] == '*') { return 67; }
-
-
-
     return 0;
 }
 
