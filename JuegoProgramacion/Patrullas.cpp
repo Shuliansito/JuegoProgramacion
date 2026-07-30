@@ -83,9 +83,9 @@ void Guardia_Mover(Guardia& g, std::string mapa[]) {
 
 void Guardia_Update(std::string nivel1[], std::string nivel2[], std::string nivel4[], int tickActual) {
     if (tickActual % 10 != 0) return;
-   
+    
     for (int i = 0; i < cantGuardias; i++) {
-       
+    
         Guardia& g = guardia[i];// Paso por referencia porque sino no se modifica la ubicacion original, sino la de una copia.
         if (!g.vivo) continue;
         if (g.nivelGuardia != player1.nivel) continue;
