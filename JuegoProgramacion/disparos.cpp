@@ -43,7 +43,13 @@ void actualizarBalas(std::string mapa[]) {
             }
 
             //Primero detecto si es pared antes de hacer el cambio de posicion [BUG N003 FIXED]
-            if (mapa[bullets[i].y][bullets[i].x] == '%') continue;
+            if (mapa[bullets[i].y][bullets[i].x] == '%' ||
+                mapa[bullets[i].y][bullets[i].x] == '-' ||
+                mapa[bullets[i].y][bullets[i].x] == '|' ||
+                mapa[bullets[i].y][bullets[i].x] == 'X' ||
+                mapa[bullets[i].y][bullets[i].x] == 'Y'){
+                bullets[i].activa = false;  continue;
+            }
             
             
 
